@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="mobile.css">
+    <title>Home</title>
+
+</head>
+<body>
+    <header>
+
+        <div class="bar-head">
+            <img class="logo-site" src="../integrations/fx.png" alt="" srcset="" width="70px">
+            <i class="fas fa-sun dark-light"></i>
+            <i class="fas fa-user user-avatar" id="userModal"></i>
+        </div>
+            
+        <div class="contenair test">
+            <div class="imge-fond">
+                <img src="./fx.png" alt="" srcset="" width="100px">
+            </div>
+            <div class="contenair-info">
+              
+                <div class="profile-card">
+                    <div class="photo-profile">
+                        <img src="./profile.jpeg" alt="Photo de profil" >
+                    </div>
+                    <p class="pseudo">pseudo du mec</p>
+                    <p class="text-header">
+                        JavaScript, Node.js, React, PostgreSQL<br>
+                        Full Stack Web Developer. Tech Enthusiast. Problem Solver. Passionné par les technologies modernes.
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+       
+    </header>
+
+    <main class="container  ">
+        <section class="scrollable">
+            <div class="overlay overlayConnexion">
+                <div class="connexion box box-connexion" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+                    
+                    <!-- Bouton de fermeture de la modale -->
+                    <div class="close has-text-right is-size-6 connexion-close">
+                        <i class="fa-regular fa-circle-xmark"></i> <!-- Icône de fermeture -->
+                    </div>
+            
+                    <h2 id="modal-title" class="title">Connexion</h2>
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="username">Nom d'utilisateur</label>
+                            <input type="text" id="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Mot de passe</label>
+                            <input type="password" id="password" required>
+                        </div>
+                        <button class="button" type="submit">Se connecter</button>
+                    </form>
+                </div>
+            </div>
+            
+            
+            <div class="projects-sidebar">
+                <h2>Mes Projets</h2>
+                <div class="project-category">
+                    <h3>Projets Fini</h3>
+                    <ul>
+                        <li><a href="#">#Projet 1</a></li>
+                        <li><a href="#">#Projet 2</a></li>
+                        <li><a href="#">#Projet 3</a></li>
+                    </ul>
+                </div>
+                <div class="project-category">
+                    <h3>Projets Pas Fini</h3>
+                    <ul>
+                        <li><a href="#">#Projet 4</a></li>
+                        <li><a href="#">#Projet 5</a></li>
+                    </ul>
+                </div>
+                <div class="project-category">
+                    <h3>Projets Académiques</h3>
+                    <ul>
+                        <li><a href="#">#Projet 6</a></li>
+                        <li><a href="#">#Projet 7</a></li>
+                    </ul>
+                </div>
+                <div class="project-category">
+                    <h3>Projets Personnels</h3>
+                    <ul>
+                        <li><a href="#">#Projet 8</a></li>
+                        <li><a href="#">#Projet 9</a></li>
+                    </ul>
+                </div>
+            </div>
+            <aside class="sidebar">
+                <div class="search-box">
+                    <input type="text" placeholder="Rechercher..." aria-label="Rechercher" />
+                    <i class="fas fa-search"></i> <!-- Icône de recherche -->
+                </div>
+                <div class="profile-info">
+                    <h2 id="show-about"><a href="#" id="about">À Propos de Moi</a></h2>
+                    <p>Développeur web full stack passionné par la création d'applications modernes.</p>
+                    <p>Contact: monemail@example.com</p>
+                    
+                </div>
+                <p>LinkedIn: <a href="#">lien vers mon profil</a></p>
+                <div class="recent-posts">
+                    <h2>Posts Récents</h2>
+                    <div class="post">Post 1</div>
+                    <div class="post">Post 2</div>
+                    <div class="post">Post 3</div>
+                    <!-- Ajoutez d'autres posts récents ici -->
+                </div>
+            </aside>
+            <div class="overlay overlayProjet ">
+                <div class="box box-apropos modalProjet has-background-black" id="about-modal" role="dialog" aria-labelledby="about-title" aria-modal="true" id="projetModal">
+                    
+                    <!-- Bouton de fermeture de la modale -->
+                    <div class="close close-projet has-text-right is-size-6">
+                        <i class="fa-regular fa-circle-xmark"></i> <!-- Icône de fermeture -->
+                    </div>
+            
+                    <div class="project">
+                        <!-- Espace pour l'image ou la vidéo -->
+                        <div class="project-media">
+                           
+                            <!-- Pour une vidéo, remplace l'image ci-dessus par une balise vidéo -->
+                            <!-- <video controls class="project-video">
+                                <source src="lien-vers-video-projet1.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la balise vidéo.
+                            </video> -->
+                        </div>
+                        
+                        <h3>Nom du Projet : Coonect</h3>
+                        <p><strong>Description :</strong> Plateforme de mise en relation entre propriétaires de voitures et nettoyeurs professionnels. Développement full-stack avec gestion de réservations, profils utilisateurs, et système de paiement sécurisé.</p>
+                        
+                        <p><strong>Technologies :</strong> Node.js, React, PostgreSQL, API Stripe</p>
+                        
+                        <p><strong>Défis :</strong> Intégration d'un calendrier de disponibilité en temps réel et mise en place d'un système de notifications pour les réservations.</p>
+                        
+                        <p><strong>Résultats :</strong> Application fonctionnelle avec des réservations en temps réel et des retours positifs sur l'interface utilisateur et l'expérience.</p>
+                        
+                        <p><strong>Voir le projet :</strong> 
+                            <a href="https://lien-vers-la-demo.com" target="_blank">Démo</a> | 
+                            <a href="https://github.com/ton-github/projet" target="_blank">Code Source</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="overlay overlayPost  ">
+                <div class="box box-apropos has-background-black " id="about-modal" role="dialog" aria-labelledby="about-title" aria-modal="true">
+                    
+                    <!-- Bouton de fermeture de la modale -->
+                    <div class="close close-post has-text-right is-size-6">
+                        <i class="fa-regular fa-circle-xmark"></i> <!-- Icône de fermeture -->
+                    </div>
+                    <article class="twitter-post box post-cliked"> <!-- Ajout de la classe 'box' pour un fond blanc et une ombre -->
+                        <div class="media position-media">
+                            <div class="media-left user-info">
+                                <figure class="image avatar is-48x48"> <!-- Avatar avec taille fixe -->
+                                    <img src="./profile.jpeg" alt="Photo de profil" >
+                                </figure>
+                                <p class="username">
+                                    <strong class="has-text-white">ᏟᎬᏁᎢᏒᎪᏞ</strong> 
+                                    <span class="has-text-grey-light">@central_sage</span>
+                                </p>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                   
+                                    <p class="tweet-text">Ceci est un exemple de tweet affiché dans une div stylisée avec Bulma. #Exemple #Twitter</p>
+                                    <img class="image-tweet is-240x245" src="../integrations/Capture d’écran 2024-10-15 à 13.00.20.png" alt="Image du tweet" style="max-width: 100%; height: auto;"> <!-- Ajout de styles pour rendre l'image responsive -->
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="content icon-info"> <!-- Alignement à droite pour la date -->
+                            <time class="has-text-left" datetime="2024-11-04T12:00">4 Nov. 2024</time>
+                           
+                            <i class="fa-solid fa-arrow-up-right-from-square fa-xs partage"></i>
+                        </div>
+                        
+                    </article>
+            
+                   
+                </div>
+            </div>
+            <div class="overlay overlayAbout">
+                <div class="box box-apropos has-background-black  " id="about-modal" role="dialog" aria-labelledby="about-title" aria-modal="true">
+                    
+                    <!-- Bouton de fermeture de la modale -->
+                    <div class="close close-about has-text-right is-size-6">
+                        <i class="fa-regular fa-circle-xmark"></i> <!-- Icône de fermeture -->
+                    </div>
+            
+                    <h2 id="about-title">À propos</h2>
+                    
+                    <p>Salut, je m'appelle Emmanuel CHARLES, développeur web full stack passionné par les nouvelles technologies et la création de solutions innovantes. Actuellement étudiant en bachelor <strong>Développeur Web et Web Mobile</strong> (bac +3) à l'école IRIS, je m'engage dans une formation qui me permet d'approfondir mes compétences techniques tout en développant une réelle expertise en conception de solutions digitales.</p>
+                    
+                    <h3>Mon Parcours</h3>
+                    <p>Mon parcours dans le développement a débuté avec un diplôme <strong>Bac +2</strong> en développement web, qui m'a donné de solides bases en programmation et en conception de projets numériques. Depuis, j'ai développé des compétences en technologies backend comme <strong>Node.js</strong> et <strong>PHP</strong>, ainsi qu'en bases de données telles que <strong>PostgreSQL</strong> et <strong>MongoDB</strong>. Côté frontend, je maîtrise <strong>HTML/CSS</strong>, <strong>JavaScript</strong> et <strong>React</strong>.</p>
+                    
+                    <h3>Mes Ambitions</h3>
+                    <p>À l'avenir, je souhaite m'impliquer dans des projets qui ont un impact positif, en utilisant mes compétences pour créer des applications pratiques et modernes. Je suis particulièrement intéressé par les technologies émergentes et l'optimisation de l'expérience utilisateur. Mon objectif est de devenir un expert reconnu dans le domaine du développement web full stack, tout en continuant à apprendre et à évoluer dans ce secteur en constante mutation.</p>
+                </div>
+            </div>
+            
+            
+            <article class="twitter-post box"> <!-- Ajout de la classe 'box' pour un fond blanc et une ombre -->
+                <div class="media position-media">
+                    <div class="media-left user-info">
+                        <figure class="image avatar is-48x48"> <!-- Avatar avec taille fixe -->
+                            <img src="./profile.jpeg" alt="Photo de profil" >
+                        </figure>
+                        <p class="username">
+                            <strong class="has-text-white">ᏟᎬᏁᎢᏒᎪᏞ</strong> 
+                            <span class="has-text-grey-light">@central_sage</span>
+                        </p>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                           
+                            <p class="tweet-text">Ceci est un exemple de tweet affiché dans une div stylisée avec Bulma. #Exemple #Twitter</p>
+                            <img class="image-tweet is-240x245" src="../integrations/Capture d’écran 2024-10-15 à 13.00.20.png" alt="Image du tweet" style="max-width: 100%; height: auto;"> <!-- Ajout de styles pour rendre l'image responsive -->
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="content icon-info"> <!-- Alignement à droite pour la date -->
+                    <time class="has-text-left" datetime="2024-11-04T12:00">4 Nov. 2024</time>
+                   
+                    <i class="fa-solid fa-arrow-up-right-from-square fa-xs partage"></i>
+                </div>
+                
+            </article>
+
+            <article class="twitter-post box"> <!-- Ajout de la classe 'box' pour un fond blanc et une ombre -->
+                <div class="media position-media">
+                    <div class="media-left user-info">
+                        <figure class="image avatar is-48x48"> <!-- Avatar avec taille fixe -->
+                            <img src="./profile.jpeg" alt="Photo de profil" >
+                        </figure>
+                        <p class="username">
+                            <strong class="has-text-white">ᏟᎬᏁᎢᏒᎪᏞ</strong> 
+                            <span class="has-text-grey-light">@central_sage</span>
+                        </p>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                           
+                            <p class="tweet-text">Ceci est un exemple de tweet affiché dans une div stylisée avec Bulma. #Exemple #Twitter</p>
+                            <img class="image-tweet is-240x245" src="../integrations/Capture d’écran 2024-10-15 à 13.00.20.png" alt="Image du tweet" style="max-width: 100%; height: auto;"> <!-- Ajout de styles pour rendre l'image responsive -->
+                        </div>
+                    </div>
+                </div>
+                <div class="content has-text-right"> <!-- Alignement à droite pour la date -->
+                    <time datetime="2024-11-04T12:00">4 Nov. 2024</time>
+                </div>
+            </article>
+
+            <article class="twitter-post box"> <!-- Ajout de la classe 'box' pour un fond blanc et une ombre -->
+                <div class="media position-media">
+                    <div class="media-left user-info">
+                        <figure class="image avatar is-48x48"> <!-- Avatar avec taille fixe -->
+                            <img src="https://pbs.twimg.com/profile_images/1564533748418347009/IyzXPuaj_x96.jpg" alt="Avatar">
+                        </figure>
+                        <p class="username">
+                            <strong class="has-text-white">ᏟᎬᏁᎢᏒᎪᏞ</strong> 
+                            <span class="has-text-grey-light">@central_sage</span>
+                        </p>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                           
+                            <p class="tweet-text">Ceci est un exemple de tweet affiché dans une div stylisée avec Bulma. #Exemple #Twitter</p>
+                            <img class="image-tweet is-240x245" src="../integrations/Capture d’écran 2024-10-15 à 13.00.20.png" alt="Image du tweet" style="max-width: 100%; height: auto;"> <!-- Ajout de styles pour rendre l'image responsive -->
+                        </div>
+                    </div>
+                </div>
+                <div class="content has-text-right"> <!-- Alignement à droite pour la date -->
+                    <time datetime="2024-11-04T12:00">4 Nov. 2024</time>
+                </div>
+            </article>
+            <article class="twitter-post box"> <!-- Ajout de la classe 'box' pour un fond blanc et une ombre -->
+                <div class="media position-media">
+                    <div class="media-left user-info">
+                        <figure class="image avatar is-48x48"> <!-- Avatar avec taille fixe -->
+                            <img src="./profile.jpeg" alt="Photo de profil" >
+                        </figure>
+                        <p class="username">
+                            <strong class="has-text-white">ᏟᎬᏁᎢᏒᎪᏞ</strong> 
+                            <span class="has-text-grey-light">@central_sage</span>
+                        </p>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                           
+                            <p class="tweet-text">Ceci est un exemple de tweet affiché dans une div stylisée avec Bulma. #Exemple #Twitter</p>
+                            <img class="image-tweet is-240x245" src="../integrations/Capture d’écran 2024-10-15 à 13.00.20.png" alt="Image du tweet" style="max-width: 100%; height: auto;"> <!-- Ajout de styles pour rendre l'image responsive -->
+                        </div>
+                    </div>
+                </div>
+                <div class="content has-text-right"> <!-- Alignement à droite pour la date -->
+                    <time datetime="2024-11-04T12:00">4 Nov. 2024</time>
+                </div>
+            </article>
+            <article class="twitter-post box"> <!-- Ajout de la classe 'box' pour un fond blanc et une ombre -->
+                <div class="media position-media">
+                    <div class="media-left user-info">
+                        <figure class="image avatar is-48x48"> <!-- Avatar avec taille fixe -->
+                            <img src="./profile.jpeg" alt="Photo de profil" >
+                        </figure>
+                        <p class="username">
+                            <strong class="has-text-white">ᏟᎬᏁᎢᏒᎪᏞ</strong> 
+                            <span class="has-text-grey-light">@central_sage</span>
+                        </p>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                           
+                            <p class="tweet-text">Ceci est un exemple de tweet affiché dans une div stylisée avec Bulma. #Exemple #Twitter</p>
+                            <video class=" image-tweet is-240x245" style="max-width: 100%; height: auto" src="./demonstration.mp4" controls poster="./cityzen (1).png" ></video>
+                        </div>
+                    </div>
+                </div>
+                <div class="content has-text-right"> <!-- Alignement à droite pour la date -->
+                    <time datetime="2024-11-04T12:00">4 Nov. 2024</time>
+                </div>
+            </article>
+            <article class="twitter-post box"> <!-- Ajout de la classe 'box' pour un fond blanc et une ombre -->
+                <div class="media position-media">
+                    <div class="media-left user-info">
+                        <figure class="image avatar is-48x48"> <!-- Avatar avec taille fixe -->
+                            <img src="./profile.jpeg" alt="Photo de profil" >
+                        </figure>
+                        <p class="username">
+                            <strong>ᏟᎬᏁᎢᏒᎪᏞ</strong> 
+                            <span class="has-text-grey-light">@central_sage</span>
+                        </p>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                           
+                            <p class="tweet-text">Ceci est un exemple de tweet affiché dans une div stylisée avec Bulma. #Exemple #Twitter</p>
+                            <img class="image-tweet is-240x245" src="../integrations/Capture d’écran 2024-10-15 à 13.00.20.png" alt="Image du tweet" style="max-width: 100%; height: auto;"> <!-- Ajout de styles pour rendre l'image responsive -->
+                        </div>
+                    </div>
+                </div>
+                <div class="content has-text-right"> <!-- Alignement à droite pour la date -->
+                    <time datetime="2024-11-04T12:00">4 Nov. 2024</time>
+                </div>
+            </article>
+
+            <article class="twitter-post box"> <!-- Ajout de la classe 'box' pour un fond blanc et une ombre -->
+                <div class="media position-media">
+                    <div class="media-left user-info">
+                        <figure class="image avatar is-48x48"> <!-- Avatar avec taille fixe -->
+                            <img src="./profile.jpeg" alt="Photo de profil" >
+                        </figure>
+                        <p class="username">
+                            <strong class="has-text-white">ᏟᎬᏁᎢᏒᎪᏞ</strong> 
+                            <span class="has-text-grey-light">@central_sage</span>
+                        </p>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                           
+                            <p class="tweet-text">Ceci est un exemple de tweet affiché dans une div stylisée avec Bulma. #Exemple #Twitter</p>
+                            <img class="image-tweet is-240x245" src="../integrations/Capture d’écran 2024-10-15 à 13.00.20.png" alt="Image du tweet" style="max-width: 100%; height: auto;"> <!-- Ajout de styles pour rendre l'image responsive -->
+                        </div>
+                    </div>
+                </div>
+                <div class="content has-text-right"> <!-- Alignement à droite pour la date -->
+                    <time datetime="2024-11-04T12:00">4 Nov. 2024</time>
+                </div>
+            </article>
+
+            <article class="twitter-post box"> <!-- Ajout de la classe 'box' pour un fond blanc et une ombre -->
+                <div class="media position-media">
+                    <div class="media-left user-info">
+                        <figure class="image avatar is-48x48"> <!-- Avatar avec taille fixe -->
+                            <img src="./profile.jpeg" alt="Photo de profil" >
+                        </figure>
+                        <p class="username">
+                            <strong class="has-text-white">ᏟᎬᏁᎢᏒᎪᏞ</strong> 
+                            <span class="has-text-grey-light">@central_sage</span>
+                        </p>
+                    </div>
+                    <div class="media-content">
+                        <div class="content">
+                           
+                            <p class="tweet-text">Ceci est un exemple de tweet affiché dans une div stylisée avec Bulma. #Exemple #Twitter</p>
+                            <img class="image-tweet is-240x245" src="../integrations/Capture d’écran 2024-10-15 à 13.00.20.png" alt="Image du tweet" style="max-width: 100%; height: auto;"> <!-- Ajout de styles pour rendre l'image responsive -->
+                        </div>
+                    </div>
+                </div>
+                <div class="content has-text-right"> <!-- Alignement à droite pour la date -->
+                    <time datetime="2024-11-04T12:00">4 Nov. 2024</time>
+                </div>
+            </article>
+
+ 
+        </section>
+      
+        
+    </main>
+
+    <footer class="container footer-logo">
+        <ul>
+            
+            <li class="logo-footer"><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+            <li class="logo-footer"><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+            <li class="logo-footer"><a href="#"><i class="fa-brands fa-github"></i></a></li>
+        </ul>
+    </footer>
+    <script src="./index.js"></script>
+</body>
+
+</html>
+
+
+
+
