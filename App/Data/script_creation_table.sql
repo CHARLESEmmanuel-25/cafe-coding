@@ -14,6 +14,7 @@ CREATE TABLE "utilisateur" (
   "prenom"            TEXT NOT NULL,
   "mail"              TEXT NOT NULL,
   "pseudo"            TEXT UNIQUE NOT NULL,
+  "mot_de_passe"      TEXT NOT NULL,
   "short_description" TEXT,
   "photo"             TEXT,
   "created_at" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,

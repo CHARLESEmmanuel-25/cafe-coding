@@ -187,6 +187,12 @@ header{
     animation: neonGlow 5.5s infinite alternate;
 }
 
+.box-connexion{
+    background-color: black;
+    color: white;
+}
+
+
 @keyframes neonGlow {
     0% {
         box-shadow: 0 0 5px #b1bdbd, 0 0 10px #00FFFF, 0 0 15px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;
@@ -482,7 +488,10 @@ time{
 }
 
 
-
+.connexion {
+    background-color: black;
+    color: white;
+}
 
 /* Styles du titre de la modal */
 .box-connexion h2 {
@@ -539,4 +548,8 @@ input[type="password"] {
     border-bottom: 1px solid rgba(211, 211, 211, 0.207);
     
 
+}
+
+.inputpost {
+  background-color: red;
 }

@@ -1,9 +1,9 @@
 BEGIN;
 
 -- Insertion dans la table utilisateur
-INSERT INTO utilisateur (nom, prenom, mail, pseudo, short_description, photo)
+INSERT INTO utilisateur (nom, prenom, mail, pseudo, mot_de_passe, short_description, photo)
 VALUES 
-('Charles', 'Emmanuel', 'emmanuel.charles@example.com', 'emmancharles', 
+('Charles', 'Emmanuel', 'emmanuel.charles@example.com', 'emmancharles', 'mot-de-passe',
  'Développeur web full stack passionné par les technologies modernes.', 
  'photo_emmanuel.jpg');
 
