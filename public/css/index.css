@@ -93,15 +93,23 @@ main {
 .sidebar {
     width: 250px; /* Largeur fixe pour la barre latérale */
     background-color: black; /* Couleur de fond similaire à Twitter */
+    height: 500px;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     flex-shrink: 0; /* Évite que la barre latérale rétrécisse */
     position: absolute;
-    margin-right: 74%;
+    margin-left: 3%;
     margin-bottom: 18%;
     border: 1px solid white;
     color: white;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    
 }
+
+
+
+
 
 .search-box {
     display: flex;
@@ -313,10 +321,10 @@ time{
     border: 1px solid white;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    margin-top: 20px; /* Espacement au-dessus de la sidebar */
+
     position: absolute;
     margin-left: 74%;
-    margin-bottom: 20%;
+    margin-bottom: 18%;
     overflow-y: auto;
     scroll-behavior: smooth;
 }
@@ -548,6 +556,19 @@ input[type="password"] {
     border-bottom: 1px solid rgba(211, 211, 211, 0.207);
     
 
+}
+
+.overlayAbout p{
+    color: white;
+}
+
+#post-date{
+    display: flex;
+    flex-direction: column;
+}
+
+.overlayAbout #about-title{
+    color: white;
 }
 
 .inputpost {

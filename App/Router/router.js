@@ -7,10 +7,14 @@ const router = Router();
 
 
 router.get('/', mainController.All);
+router.get('/post/:id', mainController.postByid);
+router.get('/projet/:id', mainController.projetByid);
+
 router.post('/login', mainController.login);
 router.post('/signing', mainController.register);
 router.post('/projet/create', mainController.creatProjet);
 router.post('/post/create', mainController.createPost);
+
 
 
 

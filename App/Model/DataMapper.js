@@ -37,6 +37,8 @@ const mainDatamapper = {
 
     },
 
+    
+
 
     getTechno : async()=>{
 
@@ -107,8 +109,30 @@ const mainDatamapper = {
     
         const result = await client.query(query);
         return result.rows; // Retourne directement les lignes du résultat
-    }
+    },
     
+    getPostByid : async(idPost)=>{
+
+        const query = {
+            text: `SELECT * FROM post WHERE id = $1`,
+            values: [idPost]
+           
+        };
+    
+        const result = await client.query(query);
+        return result.rows; // Retourne directement les lignes du résultat
+    },
+
+    getProjetById : async(idProjet)=>{
+        const query = {
+            text: `SELECT * FROM projet WHERE id = $1`,
+            values: [idProjet]
+           
+        };
+    
+        const result = await client.query(query);
+        return result.rows; // Retourne directement les lignes du résultat
+    }
     
 
 

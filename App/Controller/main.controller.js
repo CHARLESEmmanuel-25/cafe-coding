@@ -160,7 +160,30 @@ const mainController = {
         console.error("Erreur lors de la création du post :", error);
         res.status(500).json({ error: "Erreur interne du serveur." });
       }
+    },
+
+    postByid: async (req, res) =>{
+
+      const idPost = parseInt(req.params.id);
+      
+      const getPost = await mainDatamapper.getPostByid(idPost);
+
+      res.status(200).json({getPost});
+
+      console.log(getPost);
+    },
+
+    projetByid: async(req,res)=>{
+      const idProjet = parseInt(req.params.id);
+      
+      const getProjet = await mainDatamapper.getProjetById(idProjet);
+
+      res.status(200).json({getProjet});
+
+      
     }
+
+  
     
     
     

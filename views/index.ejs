@@ -92,11 +92,11 @@
                     <p class="is-size-7">Contact: <%= utilisateur[0].mail%></p>
                     
                 </div>
-                <p>LinkedIn: <a href="#">lien vers mon profil</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/emmanuel-charles-developpeur-informatique/">lien vers mon profil</a></p>
                 <div class="recent-posts">
                     <h2>Posts Récents</h2>
                     <% Recentsposts.forEach(recentPost => { %>
-                        <div class="post"><a href=""><%= recentPost.titre %></a></div>
+                        <div class="post" id="post-date"><a href=""><%= recentPost.titre %></a> <small class="has-text-grey-light"><%= recentPost.created_at %></small></div>
                     <% }) %>
                     
                    
@@ -139,40 +139,44 @@
                 </div>
             </div>
             <div class="overlay overlayPost  ">
-                <div class="box box-apropos has-background-black " id="about-modal" role="dialog" aria-labelledby="about-title" aria-modal="true">
+                <div class="box box-apropos has-background-black " id="modal-content" role="dialog" aria-labelledby="about-title" aria-modal="true">
                     
                     <!-- Bouton de fermeture de la modale -->
                     <div class="close close-post has-text-right is-size-6">
                         <i class="fa-regular fa-circle-xmark"></i> <!-- Icône de fermeture -->
                     </div>
+            
                     <article class="twitter-post box post-cliked"> <!-- Ajout de la classe 'box' pour un fond blanc et une ombre -->
                         <div class="media position-media">
-                            <div class="media-left user-info">
-                                <figure class="image avatar is-48x48"> <!-- Avatar avec taille fixe -->
-                                    <img src="/assets/profile.jpeg" alt="Photo de profil" >
-                                </figure>
-                                <p class="username">
-                                    <strong class="has-text-white">ᏟᎬᏁᎢᏒᎪᏞ</strong> 
-                                    <span class="has-text-grey-light">@<%= utilisateur[0].pseudo %></span>
-                                </p>
-                            </div>
-                            <div class="media-content">
-                                <div class="content">
-                                   
-                                    <p class="tweet-text">Ceci est un exemple de tweet affiché dans une div stylisée avec Bulma. #Exemple #Twitter</p>
-                                    <img class="image-tweet is-240x245" src="/assets/Capture d’écran 2024-10-15 à 13.00.20.png" alt="Image du tweet" style="max-width: 100%; height: auto;"> <!-- Ajout de styles pour rendre l'image responsive -->
-                                </div>
+                        <div class="media-left user-info">
+                            <figure class="image avatar is-48x48"> <!-- Avatar avec taille fixe -->
+                                <img src="/assets/<%= utilisateur[0].photo %>" alt="Photo de profil" >
+                            </figure>
+                            <p class="username">
+                                <strong class="has-text-white">ᏟᎬᏁᎢᏒᎪᏞ</strong> 
+                                <span class="has-text-grey-light">@<%= utilisateur[0].pseudo %></span>
+                            </p>
+                        </div>
+
+                        <div class="media-content">
+                            <div class="content">
+                            
+                                <p class="post-description"></p>
+                                <img class="image-tweet is-240x245" src="/assets/coonect_booking.png" alt="Image du tweet" style="max-width: 100%; height: auto;"> <!-- Ajout de styles pour rendre l'image responsive -->
                             </div>
                         </div>
-                    
+                        </div>
+        
                         <div class="content icon-info"> <!-- Alignement à droite pour la date -->
-                            <time class="has-text-left" datetime="2024-11-04T12:00">4 Nov. 2024</time>
-                           
-                            <i class="fa-solid fa-arrow-up-right-from-square fa-xs partage"></i>
+                        <time class="has-text-left date-post" datetime="2024-11-04T12:00"></time>
+        
+                        <i class="fa-solid fa-arrow-up-right-from-square fa-xs partage"></i>
                         </div>
-                        
+
                     </article>
-            
+
+ 
+          
                    
                 </div>
             </div>
@@ -186,20 +190,22 @@
             
                     <h2 id="about-title">À propos</h2>
                     
-                    <p>Salut, je m'appelle Emmanuel CHARLES, développeur web full stack passionné par les nouvelles technologies et la création de solutions innovantes. Actuellement étudiant en bachelor <strong>Développeur Web et Web Mobile</strong> (bac +3) à l'école IRIS, je m'engage dans une formation qui me permet d'approfondir mes compétences techniques tout en développant une réelle expertise en conception de solutions digitales.</p>
+                    <p class="has-text-white"><%= presentation.short_presentation %></p>
                     
                     <h3>Mon Parcours</h3>
-                    <p>Mon parcours dans le développement a débuté avec un diplôme <strong>Bac +2</strong> en développement web, qui m'a donné de solides bases en programmation et en conception de projets numériques. Depuis, j'ai développé des compétences en technologies backend comme <strong>Node.js</strong> et <strong>PHP</strong>, ainsi qu'en bases de données telles que <strong>PostgreSQL</strong> et <strong>MongoDB</strong>. Côté frontend, je maîtrise <strong>HTML/CSS</strong>, <strong>JavaScript</strong> et <strong>React</strong>.</p>
+                    <p><%= presentation[0].description %>. Actuellement je suit un <strong><%= presentation[0].formation %></strong> au sein de l'école  <strong><%= presentation[0].ecole %>.</strong> </p>
+                    
+                    <h3>Competances technique</h3>
+                    <p> je travail frequement avec les technologies suivante : <strong>Node.js</strong> et <strong>PHP</strong>. Pour les bases de données j'utilise souvent : <strong>PostgreSQL</strong> et <strong>MongoDB</strong>. Côté frontend, je maîtrise <strong>HTML/CSS</strong>, <strong>JavaScript</strong> et <strong>React</strong></p>
                     
                     <h3>Mes Ambitions</h3>
-                    <p>À l'avenir, je souhaite m'impliquer dans des projets qui ont un impact positif, en utilisant mes compétences pour créer des applications pratiques et modernes. Je suis particulièrement intéressé par les technologies émergentes et l'optimisation de l'expérience utilisateur. Mon objectif est de devenir un expert reconnu dans le domaine du développement web full stack, tout en continuant à apprendre et à évoluer dans ce secteur en constante mutation.</p>
+                    <p><%= presentation[0].ambitions %>.</p>
                 </div>
             </div>
             
     <% posts.forEach(post => { %>
                 
-             
-         <a href="#" class="twitter-post link-post">  <article class=" box"> <!-- Ajout de la classe 'box' pour un fond blanc et une ombre -->
+         <a href=""  data-id="<%= post.id%>" class="twitter-post link-post">  <article class=" box"> <!-- Ajout de la classe 'box' pour un fond blanc et une ombre -->
                 <div class="media position-media">
                     <div class="media-left user-info">
                         <figure class="image avatar is-48x48"> <!-- Avatar avec taille fixe -->
@@ -214,7 +220,7 @@
                         <div class="content">
                            
                             <p class="tweet-text"><%= post.description %> #Twitter</p>
-                            <img class="image-tweet is-240x245" src="/assets/<%= post.media_du_post %>" alt="Image du tweet" style="max-width: 100%; height: auto;"> <!-- Ajout de styles pour rendre l'image responsive -->
+                            <img class="image-tweet is-240x245" src="/assets/coonect_booking.png" alt="Image du tweet" style="max-width: 100%; height: auto;"> <!-- Ajout de styles pour rendre l'image responsive -->
                         </div>
                     </div>
                 </div>

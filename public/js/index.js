@@ -76,3 +76,42 @@ posts.forEach((post) => {
     });
 });
 
+
+// charger les articles
+
+const links = document.querySelectorAll('.link-post');
+
+
+links.forEach(link =>{
+    link.addEventListener('click', async(e)=>{
+        e.preventDefault();
+
+        const postId = e.currentTarget.getAttribute('data-id');
+        
+        const res = await fetch(`http://localhost:3000/post/${postId}`);
+       if(!res.ok){
+        throw new Error(`Response status: ${res.status}`);
+       }
+
+       const data = await res.json();
+       const post = data.getPost;
+       const postDescription = document.querySelector('.post-description');
+       const postDate = document.querySelector('.date-post')
+
+       postDescription.innerText = post[0].description;
+       postDate.innerText = post[0].created_at;
+       
+    })
+});
+
+
+
+
+
+
+
+
+/*
+
+
+*/
