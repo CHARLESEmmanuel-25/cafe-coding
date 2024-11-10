@@ -75,7 +75,7 @@
 
                         <ul>
                             <% projets.forEach(projet => { %>
-                            <li><a href="#">#<%= projet.nom %></a></li>
+                            <li><a href="#" data-id="<%= projet.id%>" class="link-projet">#<%= projet.nom %></a></li>
                             <% }) %>
                         </ul>
                     </div>
@@ -122,14 +122,14 @@
                             </video> -->
                         </div>
                         
-                        <h3>Nom du Projet : Coonect</h3>
-                        <p><strong>Description :</strong> Plateforme de mise en relation entre propriétaires de voitures et nettoyeurs professionnels. Développement full-stack avec gestion de réservations, profils utilisateurs, et système de paiement sécurisé.</p>
+                        <h3 class="projet-nom"></h3>
+                        <p class="projet-description"><strong>Description :</strong> Plateforme de mise en relation entre propriétaires de voitures et nettoyeurs professionnels. Développement full-stack avec gestion de réservations, profils utilisateurs, et système de paiement sécurisé.</p>
                         
-                        <p><strong>Technologies :</strong> Node.js, React, PostgreSQL, API Stripe</p>
+                        <p class="projet-tech"><strong>Technologies :</strong> Node.js, React, PostgreSQL, API Stripe</p>
                         
-                        <p><strong>Défis :</strong> Intégration d'un calendrier de disponibilité en temps réel et mise en place d'un système de notifications pour les réservations.</p>
+                        <p class="projet-defis"><strong>Défis :</strong> Intégration d'un calendrier de disponibilité en temps réel et mise en place d'un système de notifications pour les réservations.</p>
                         
-                        <p><strong>Résultats :</strong> Application fonctionnelle avec des réservations en temps réel et des retours positifs sur l'interface utilisateur et l'expérience.</p>
+                        <p class="projet-resultat"><strong>Résultats :</strong> Application fonctionnelle avec des réservations en temps réel et des retours positifs sur l'interface utilisateur et l'expérience.</p>
                         
                         <p><strong>Voir le projet :</strong> 
                             <a href="https://lien-vers-la-demo.com" target="_blank">Démo</a> | 
@@ -168,7 +168,7 @@
                         </div>
         
                         <div class="content icon-info"> <!-- Alignement à droite pour la date -->
-                        <time class="has-text-left date-post" datetime="2024-11-04T12:00"></time>
+                        <time class="has-text-left date" datetime="2024-11-04T12:00"></time>
         
                         <i class="fa-solid fa-arrow-up-right-from-square fa-xs partage"></i>
                         </div>

@@ -81,6 +81,7 @@ posts.forEach((post) => {
 
 const links = document.querySelectorAll('.link-post');
 
+const projetsId = document.querySelectorAll('.link-projet');
 
 links.forEach(link =>{
     link.addEventListener('click', async(e)=>{
@@ -96,13 +97,44 @@ links.forEach(link =>{
        const data = await res.json();
        const post = data.getPost;
        const postDescription = document.querySelector('.post-description');
-       const postDate = document.querySelector('.date-post')
+       const postDate = document.querySelector('.date')
 
        postDescription.innerText = post[0].description;
        postDate.innerText = post[0].created_at;
        
     })
 });
+
+projetsId.forEach(projetid=>{
+    projetid.addEventListener('click', async (e)=>{
+        e.preventDefault();
+        const id = e.currentTarget.getAttribute('data-id');
+        const res = await fetch(`http://localhost:3000/projet/${id}`);
+        if (!res.ok) {
+            throw new Error(`Response status: ${res.status}`);
+        }
+
+        const data = await res.json();
+        const projetbyId = data.getProjet;
+
+        const nomProjet = document.querySelector('.projet-nom');
+        const description =document.querySelector('.projet-description');
+        const technologies = document.querySelector('.projet-tech');
+        const defis = document.querySelector('.projet-defis');
+        const resultats = document.querySelector('.projet-resultat');
+
+        nomProjet.innerText = `Nom du projet : ${projetbyId[0].nom}`;
+        description.innerText = projetbyId[0].description;
+        defis.innerText = `Défis : ${projetbyId[0].defis}`;
+        resultats.innerText = `Résultat: ${projetbyId[0].defis}`;
+
+    });
+
+   
+
+
+});
+
 
 
 
