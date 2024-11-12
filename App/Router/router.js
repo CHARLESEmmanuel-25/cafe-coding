@@ -6,9 +6,12 @@ const router = Router();
 // Exemple de route GET
 
 
+
 router.get('/', mainController.All);
 router.get('/post/:id', mainController.postByid);
 router.get('/projet/:id', mainController.projetByid);
+
+router.get('/dashbord', mainController.dashbordLog);
 
 router.post('/login', mainController.login);
 router.post('/signing', mainController.register);

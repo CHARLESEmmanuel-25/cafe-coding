@@ -48,6 +48,9 @@ function closeOverlay(overlayName) {
     overlayName.classList.remove('show'); // Cache l'overlay
 }
 
+// formating date
+
+
 
 // side bar right 
 
@@ -96,11 +99,15 @@ links.forEach(link =>{
 
        const data = await res.json();
        const post = data.getPost;
+     
        const postDescription = document.querySelector('.post-description');
        const postDate = document.querySelector('.date')
-
+       const maDate = new Date(post[0].created_at)
+       maDate.toLocaleDateString("fr");
+       alert(maDate);
        postDescription.innerText = post[0].description;
-       postDate.innerText = post[0].created_at;
+       dateFormat(post[0].created_at,postDate );
+       
        
     })
 });
@@ -127,6 +134,11 @@ projetsId.forEach(projetid=>{
         description.innerText = projetbyId[0].description;
         defis.innerText = `Défis : ${projetbyId[0].defis}`;
         resultats.innerText = `Résultat: ${projetbyId[0].defis}`;
+    
+
+        
+        
+
 
     });
 
@@ -135,15 +147,48 @@ projetsId.forEach(projetid=>{
 
 });
 
+const postRecents = document.querySelectorAll('.postRecents');
+const postPrincipales = document.querySelectorAll('.link-post');
+
+postRecents.forEach(recent => {
+    recent.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const recentId = e.currentTarget.getAttribute('data-id');
+        console.log(`id recent: ${recentId}`);
+
+        // Utilisation de `some()` pour trouver une correspondance
+        const matched = Array.from(postPrincipales).some(postPrincipal => {
+            const postprincipalId = postPrincipal.getAttribute('data-id');
+            console.log(`id post principal: ${postprincipalId}`);
+
+            if (recentId === postprincipalId) {
+                const targetArticle = document.querySelector(`#post-${postprincipalId}`);
+                if (targetArticle) {
+                    targetArticle.scrollIntoView({ behavior: 'smooth' });
+                }
+                return true; // Arrête `some()` dès qu'une correspondance est trouvée
+            }
+            return false;
+        });
+
+        if (!matched) {
+            alert('No matching ID found');
+        }
+    });
+});
 
 
 
+async function dateFormat(date,Element,){
+
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric' };
+    const dateFormat = new Date(date);
+
+    return Element.innerHTML = dateFormat.toLocaleDateString("en-FR", options);
+
+}
+
+// lancement de la page 
 
 
-
-
-
-/*
-
-
-*/

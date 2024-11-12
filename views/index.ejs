@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="/css/mobile.css">
     <title>Home</title>
 
 </head>
@@ -82,10 +82,7 @@
               
             </div>
             <aside class="sidebar">
-                <div class="search-box">
-                    <input type="text" placeholder="Rechercher..." aria-label="Rechercher" />
-                    <i class="fas fa-search"></i> <!-- Icône de recherche -->
-                </div>
+              
                 <div class="profile-info">
                     <h2 id="show-about"><a href="#" id="about">À Propos de Moi</a></h2>
                     <p class="is-size-7"><%= presentation[0].short_presentation %></p>
@@ -96,7 +93,7 @@
                 <div class="recent-posts">
                     <h2>Posts Récents</h2>
                     <% Recentsposts.forEach(recentPost => { %>
-                        <div class="post" id="post-date"><a href=""><%= recentPost.titre %></a> <small class="has-text-grey-light"><%= recentPost.created_at %></small></div>
+                        <div class="post postRecents"id="post-date" data-id="<%= recentPost.id %>" ><a href=""><%= recentPost.titre %></a> <small class="has-text-grey-light"><%= recentPost.created_at %></small></div>
                     <% }) %>
                     
                    
@@ -205,7 +202,8 @@
             
     <% posts.forEach(post => { %>
                 
-         <a href=""  data-id="<%= post.id%>" class="twitter-post link-post">  <article class=" box"> <!-- Ajout de la classe 'box' pour un fond blanc et une ombre -->
+         <a href=""  data-id="<%= post.id%>" class="twitter-post link-post">  
+            <article class=" box" id="post-<%= post.id%>"> <!-- Ajout de la classe 'box' pour un fond blanc et une ombre -->
                 <div class="media position-media">
                     <div class="media-left user-info">
                         <figure class="image avatar is-48x48"> <!-- Avatar avec taille fixe -->
@@ -226,7 +224,11 @@
                 </div>
             
                 <div class="content icon-info"> <!-- Alignement à droite pour la date -->
-                    <time class="has-text-left" datetime="2024-11-04T12:00"><%= post.created_at %></time>
+                    <time class="has-text-left date" datetime="<%= post.created_at.toISOString() %>">
+                        <%= new Date(post.created_at).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %>
+                    </time>
+                    
+                    
                    
                     <i class="fa-solid fa-arrow-up-right-from-square fa-xs partage"></i>
                 </div>

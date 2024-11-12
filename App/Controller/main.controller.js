@@ -170,7 +170,7 @@ const mainController = {
 
       res.status(200).json({getPost});
 
-      console.log(getPost);
+      
     },
 
     projetByid: async(req,res)=>{
@@ -181,15 +181,24 @@ const mainController = {
       res.status(200).json({getProjet});
 
       
-    }
+    },
 
+    dashbordLog: async (req, res) => {
+      const idUser = req.session.userId;
+  
+      if (!idUser) {
+          console.log('connectez vous');
+          return res.status(404).send("Page non trouvée"); // retourne un statut 404
+      }
+      
+      res.render('dashbord');
+  }
   
     
     
     
     
-    
-
+  
 
  };
  
