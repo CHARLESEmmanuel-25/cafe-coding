@@ -1,0 +1,87 @@
+@url = http://localhost:3000
+# @url = http://localhost:3000
+
+# Create post
+
+### POST /signing
+
+POST {{url}}/signing
+Content-Type: application/json
+
+{
+    "nom": "CHARLES",
+    "prenom": "Emmanuel",
+    "mail": "ccharlesemmanuel@gmail.com",
+    "pseudo": "caf_dev", 
+    "motDePasse": "charles25", 
+    "short_description": "Passionné de JavaScript et de Node.js, j’apprends vite et vise le full stack… parce que pourquoi choisir entre front et back ?", 
+    "photo": "photo_emmanuel.jpg" 
+}
+
+### POST /login
+
+POST {{url}}/login
+Content-Type: application/json
+
+{
+    "mail": "ccharlesemmanuel@gmail.com",
+    "motDePasse": "charles25"
+}
+
+### POST /post/create
+
+POST {{url}}/post/create
+Content-Type: application/json
+
+{
+    "titre": "🚀 Je me lance dans l'apprentissage de Java EE !",
+    "description": "Java EE (Enterprise Edition) est une plateforme pour créer des applis d'entreprise robustes avec des outils comme Servlets, JSP, EJB et JPA. Parfait pour gérer les transactions, la sécurité et les bases de données à grande échelle. #JavaEE #webdev #learning",
+    "tags": "#new",
+    "image": "java_ee.jpg",
+    "lien": ""
+}
+
+### POST /projet/create
+
+POST {{url}}/projet/create
+Content-Type: application/json
+
+{
+    "nom": "Coonect",
+    "description": "🚗✨ En dev : Coonect, la plateforme qui connecte propriétaires de voitures et nettoyeurs pros ! Trouvez, réservez et payez facilement un nettoyage auto près de chez vous. Gestion simplifiée pour les pros avec profils, tarifs et calendrier intégré. J’ai eu l’idée en cherchant à nettoyer ma voiture… mais sans finir trempé ! 😅 #Coonect #NettoyageAuto #Tech",
+    "techno": "#js #nodejs #postgres",
+    "defis": "Coonect a ses défis : synchroniser les plannings, sécuriser les paiements, assurer la scalabilité et optimiser l’expérience pour clients et nettoyeurs… ça va prendre bien plus de temps que prévu ! 💪 #Coonect #Tech #Développement",
+    "duree": "En cours",
+    "photo": "coonect.jpg",
+    "resultats": "Pour le moment, je développe le front-end du projet pour créer une interface simple et intuitive.",
+    "lienDemo": "",
+    "lienGithub": "https://github.com/CHARLESEmmanuel-25/Coonect-front"
+}
+
+### DELETED /projet/:idProjet
+
+DELETE {{url}}/projet/:idProjet
+Content-Type: application/json
+
+{
+    "id": "<id_du_projet>"
+}
+
+
+
+
+###POST
+
+POST {{url}}/presentation/create
+Content-Type: application/json
+
+{
+    "short_presentation": "Développeur web full stack avec une spécialisation en JavaScript et Node.js. Expérimenté en développement front et back-end','Développeur web full stack avec une spécialisation en JavaScript et Node.js.",
+    "description": "Développeur web full stack avec une spécialisation en JavaScript et Node.js. Expérimenté en développement front et back-end','Développeur web full stack avec une spécialisation en JavaScript et Node.js. Expérimenté en développement front et back-end, avec des projets personnels et professionnels.", 
+    "formation": "Bachelor en développement web", 
+    "ecole": "IRIS School", 
+    "photo": "presentationPhoto.png",
+    "parcours": "Diplômé en tant que Développeur Web et Web Mobile (RNCP niveau 5), j’approfondis aujourd'hui mes compétences avec un Bachelor 3 en Développement Web. Passionné et déterminé à exceller dans le domaine !", 
+    "ambitions": "Devenir expert en technologies JavaScript et contribuer à des projets innovants"
+}
+

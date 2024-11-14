@@ -31,6 +31,36 @@ const mainController = {
      }
    },
 
+   createPresentation: async (req, res) => {
+    try {
+        const idUser = req.session.userId;
+
+        if (!idUser) {
+            return res.status(401).json({ error: "Utilisateur non authentifié." });
+        }
+
+        const { short_presentation, description, formation, ecole, parcours, photo, ambitions } = req.body;
+
+       const presentationCreated = {
+            short_presentation, 
+            description, 
+            formation, 
+            ecole, 
+            parcours, 
+            photo, 
+            ambitions,
+            idUser
+       }
+
+       await mainDatamapper.savePresentation(presentationCreated);
+
+       res.status(201).json({ message: "Presentation créé avec succès"});
+    } catch (error) {
+        console.error("Erreur lors de la création de la présentation :", error);
+        return res.status(500).json({ error: "Erreur interne du serveur." });
+    }
+  },
+
 
    register: async (req, res) => {
       try {
@@ -103,19 +133,20 @@ const mainController = {
           return res.status(401).json({ error: "Utilisateur non authentifié." });
         }
     
-        const { nom, description, techno, defis, duree, resultats, lienDemo, lienGithub } = req.body;
-    
-        const projetCreateByUser = {
-          nom,
-          description,
-          techno,
-          defis,
-          duree,
-          resultats,
-          lienDemo,
-          lienGithub,
-          userid: idUser
-        };
+        const { nom, description, techno, defis, duree, resultats, photo, lienDemo, lienGithub } = req.body;
+
+          const projetCreateByUser = {
+              nom,
+              description,
+              techno,
+              defis,
+              duree,
+              resultats,
+              photo,
+              lienDemo,
+              lienGithub,
+              userid: idUser
+          };
     
         await mainDatamapper.saveProjet(projetCreateByUser);
     
@@ -141,6 +172,7 @@ const mainController = {
           titre,
           description,
           tags,
+          image,
           lien,
           userid: idUser
         };
@@ -173,6 +205,30 @@ const mainController = {
       
     },
 
+    deletePost: async (req, res) => {
+      try {
+          const idUser = req.session.userId;
+          const idPost = parseInt(req.params.idPost);
+  
+          if (!idUser) {
+              console.log('Connectez-vous');
+              return res.status(401).send(" Connectez-vous,vous n'etes pas autorisé a supprimer ce post"); // Retourne un statut 401 pour indiquer que l'utilisateur doit être connecté
+          }
+  
+          const postSupprime = await mainDatamapper.destroyProjet(idPost);
+  
+          if (!postSupprime) {
+              console.log('Post non trouvé');
+              return res.status(404).send("Post non trouvé"); // Retourne un statut 404 si le post n'existe pas
+          }
+  
+          res.status(200).send("Post supprimé avec succès"); // Retourne un statut 200 et un message de succès
+      } catch (error) {
+          console.error(error);
+          res.status(500).send("Erreur interne du serveur"); // Retourne un statut 500 en cas d'erreur serveur
+      }
+   },
+
     projetByid: async(req,res)=>{
       const idProjet = parseInt(req.params.id);
       
@@ -183,16 +239,40 @@ const mainController = {
       
     },
 
-    dashbordLog: async (req, res) => {
-      const idUser = req.session.userId;
+    deleteProjet: async (req, res) => {
+      try {
+          const idUser = req.session.userId;
+          const idProjet = parseInt(req.params.idProjet);
   
-      if (!idUser) {
-          console.log('connectez vous');
-          return res.status(404).send("Page non trouvée"); // retourne un statut 404
+          if (!idUser) {
+              console.log('Connectez-vous');
+              return res.status(401).send("Non autorisé"); // Retourne un statut 401 pour indiquer que l'utilisateur doit être connecté
+          }
+  
+          const projetSupprime = await mainDatamapper.destroyProjet(idProjet);
+  
+          if (!projetSupprime) {
+              console.log('Projet non trouvé');
+              return res.status(404).send("Projet non trouvé"); // Retourne un statut 404 si le projet n'existe pas
+          }
+  
+          res.status(200).send("Projet supprimé avec succès"); // Retourne un statut 200 et un message de succès
+      } catch (error) {
+          console.error(error);
+          res.status(500).send("Erreur interne du serveur"); // Retourne un statut 500 en cas d'erreur serveur
       }
-      
-      res.render('dashbord');
-  }
+    },
+  
+    dashbordLog: async (req, res) => {
+        const idUser = req.session.userId;
+    
+        if (!idUser) {
+            console.log('connectez vous');
+            return res.status(404).send("Page non trouvée"); // retourne un statut 404
+        }
+        
+        res.render('dashbord');
+    }
   
     
     
