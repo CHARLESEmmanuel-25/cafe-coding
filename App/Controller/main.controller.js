@@ -5,9 +5,10 @@ import { hashPassword } from "../utils/bcrypt.js";
 import bcrypt from 'bcrypt';
 
 
-
+let count = 0;
 
 const mainController = {
+  
    All: async (req, res) => {
      try {
        // Effectuer toutes les requêtes en parallèle pour optimiser les performances
@@ -18,8 +19,8 @@ const mainController = {
          mainDatamapper.getRecentsposts(),
          mainDatamapper.getPresentation()
        ]);
- 
-       console.log(presentation);
+       
+       console.log(count++);
        
  
        // Rendre les données dans la vue "index" avec toutes les données nécessaires
