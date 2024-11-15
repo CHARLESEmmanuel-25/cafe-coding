@@ -67,6 +67,15 @@ Content-Type: application/json
     "id": "<id_du_projet>"
 }
 
+### DELETED /post/:idPost
+
+DELETE  {{url}/post/:idPost}
+Content-Type: application/json
+
+{
+    "id": "id du post"
+}
+
 
 
 

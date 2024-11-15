@@ -8,6 +8,8 @@ import bcrypt from 'bcrypt';
 
 
 const mainController = {
+
+  
    All: async (req, res) => {
      try {
        // Effectuer toutes les requêtes en parallèle pour optimiser les performances
@@ -18,12 +20,12 @@ const mainController = {
          mainDatamapper.getRecentsposts(),
          mainDatamapper.getPresentation()
        ]);
- 
-       console.log(presentation);
-       
+
+
  
        // Rendre les données dans la vue "index" avec toutes les données nécessaires
        res.render('index', { utilisateur, projets, posts, Recentsposts, presentation});
+       
      } catch (error) {
        console.error("Erreur lors de la récupération des données :", error.message);
        // Envoyer une réponse d'erreur si nécessaire

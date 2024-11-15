@@ -93,7 +93,11 @@
                 <div class="recent-posts">
                     <h2>Posts Récents</h2>
                     <% Recentsposts.forEach(recentPost => { %>
-                        <div class="post postRecents"id="post-date" data-id="<%= recentPost.id %>" ><a href=""><%= recentPost.titre %></a> <small class="has-text-grey-light"><%= recentPost.created_at %></small></div>
+                        <div class="post postRecents"id="post-date" data-id="<%= recentPost.id %>" ><a href=""><%= recentPost.titre %></a> <small class="has-text-grey-light">
+                            <time class="has-text-left date" datetime="<%= recentPost.created_at.toISOString() %>">
+                                <%= new Date(recentPost.created_at).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %>
+                            </time>
+                        </small></div>
                     <% }) %>
                     
                    
@@ -136,7 +140,7 @@
                 </div>
             </div>
             <div class="overlay overlayPost  ">
-                <div class="box box-apropos has-background-black " id="modal-content" role="dialog" aria-labelledby="about-title" aria-modal="true">
+                <div class="box box-apropos has-background-black has-text-white" id="modal-content" role="dialog" aria-labelledby="about-title" aria-modal="true">
                     
                     <!-- Bouton de fermeture de la modale -->
                     <div class="close close-post has-text-right is-size-6">
@@ -178,7 +182,7 @@
                 </div>
             </div>
             <div class="overlay overlayAbout">
-                <div class="box box-apropos has-background-black  " id="about-modal" role="dialog" aria-labelledby="about-title" aria-modal="true">
+                <div class="box box-apropos has-background-black   " id="about-modal" role="dialog" aria-labelledby="about-title" aria-modal="true">
                     
                     <!-- Bouton de fermeture de la modale -->
                     <div class="close close-about has-text-right is-size-6">
