@@ -13,7 +13,7 @@ const mainDatamapper = {
     getPost : async()=>{
 
        
-        const res = await client.query("SELECT post.*, media.image AS media_du_post  FROM post INNER JOIN media ON post.id = media.id")
+        const res = await client.query("SELECT * FROM post;")
         return res.rows;
 
     },
@@ -37,8 +37,6 @@ const mainDatamapper = {
 
     },
 
-    
-
 
     getTechno : async()=>{
 
@@ -54,6 +52,28 @@ const mainDatamapper = {
         return result.rows;
     },
     
+    savePresentation: async(presentationCreated)=>{
+
+        const query = {
+            text: `INSERT INTO presentation (short_presentation, description, formation, ecole, parcours, photo, ambitions, id_utilisateur)
+                   VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
+            values: [
+                presentationCreated.short_presentation,
+                presentationCreated.description,
+                presentationCreated.formation,
+                presentationCreated.ecole,
+                presentationCreated.parcours,
+                presentationCreated.photo,
+                presentationCreated.ambitions,
+                presentationCreated.idUser,
+            
+            ]
+        };
+        const result = await client.query(query);
+        return result.rows[0];
+
+
+    },
     
     userExist: async (mail) => {
         const query = {
@@ -67,8 +87,8 @@ const mainDatamapper = {
 
     saveProjet: async (projetCreateByUser) => {
         const query = {
-            text: `INSERT INTO projet (nom, description, tech, defis, duree_realisation, resultats, lien_demo, lien_github, id_utilisateur)
-                   VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
+            text: `INSERT INTO projet (nom, description, tech, defis, duree_realisation, resultats, photo, lien_demo, lien_github, id_utilisateur)
+                   VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING *`,
             values: [
                 projetCreateByUser.nom,
                 projetCreateByUser.description,
@@ -76,6 +96,7 @@ const mainDatamapper = {
                 projetCreateByUser.defis,
                 projetCreateByUser.duree,
                 projetCreateByUser.resultats,
+                projetCreateByUser.photo,
                 projetCreateByUser.lienDemo,
                 projetCreateByUser.lienGithub,
                 projetCreateByUser.userid
@@ -87,12 +108,13 @@ const mainDatamapper = {
 
     savePost: async (postCreateByUser) => {
         const query = {
-            text: `INSERT INTO post (titre, description, tags, lien, id_utilisateur)
-                   VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+            text: `INSERT INTO post (titre, description, tags,photo, lien, id_utilisateur)
+                   VALUES ($1, $2, $3, $4, $5, $6 ) RETURNING *`,
             values: [
                 postCreateByUser.titre,
                 postCreateByUser.description,
                 postCreateByUser.tags,
+                postCreateByUser.image,
                 postCreateByUser.lien,
                 postCreateByUser.userid
             ]
@@ -132,7 +154,34 @@ const mainDatamapper = {
     
         const result = await client.query(query);
         return result.rows; // Retourne directement les lignes du résultat
-    }
+    },
+
+    destroyProjet: async(idProjet)=>{
+        const query = {
+            text: `DELETE FROM projet WHERE id = $1`,
+            values: [idProjet]
+           
+        };
+    
+        const result = await client.query(query);
+        return result.rows; // Retourne directement les lignes du résultat
+    },
+
+
+    destroyPost: async(idPost)=>{
+        const query = {
+            text: `DELETE FROM projet WHERE id = $1`,
+            values: [idProjet]
+           
+        };
+    
+        const result = await client.query(query);
+        return result.rows; // Retourne directement les lignes du résultat
+    },
+
+
+
+
     
 
 
