@@ -10,6 +10,7 @@ const client = new Client({
   database: process.env.DBN,
   password: process.env.DBP,
   port: process.env.DBPORT,
+  host: process.env.HOST
 });
 
 // Connexion à la base de données avec gestion des erreurs
@@ -18,3 +19,4 @@ client.connect()
   .catch(err => console.error("Erreur de connexion à la base de données", err));
 
 export default client;
+
