@@ -36,7 +36,7 @@ const mainController = {
        
  
        // Rendre les données dans la vue "index" avec toutes les données nécessaires
-       res.render('index', { utilisateur, projets, posts, Recentsposts, presentation,vues});
+       res.render('index', { utilisateur, projets, posts, Recentsposts, presentation});
        
      } catch (error) {
        console.error("Erreur lors de la récupération des données :", error.message);
