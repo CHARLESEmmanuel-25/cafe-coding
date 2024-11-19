@@ -250,7 +250,7 @@ header{
 }
 
 .text-header {
-    font-size: 0.9rem; /* Taille du texte pour la description */
+    font-size: 13px; /* Taille du texte pour la description */
     color: #ffffff; /* Couleur gris clair */
     line-height: 1.5; /* Hauteur de ligne pour plus d'espace */
 }
@@ -291,6 +291,7 @@ time{
 }
 .tweet-text {
     margin-top: 10px;
+    
 }
 
 .image-tweet{
@@ -346,6 +347,18 @@ time{
 .project-category ul {
     list-style-type: none; /* Suppression des puces de liste */
     padding-left: 0; /* Suppression du padding gauche */
+}
+
+h3{
+    font-size: 2px;
+}
+
+p{
+    font-size: 13px;
+}
+
+.titre-recents{
+    margin-top: 5%;
 }
 
 .project-category li {
@@ -455,6 +468,15 @@ time{
     backdrop-filter: blur(5px);
 }
 
+
+
+
+
+.box-apropos p{
+    color: white;
+    
+}
+
 .modelHide{
    display: none;
 }
@@ -558,8 +580,17 @@ input[type="password"] {
 
 }
 
+.sidebar-projet{
+    display: flex;
+    flex-direction: column;
+}
+
 .overlayAbout p{
     color: white;
+}
+
+.date{
+    color: gray;
 }
 
 #post-date{
@@ -567,8 +598,16 @@ input[type="password"] {
     flex-direction: column;
 }
 
+
+
+
+
 .overlayAbout #about-title{
     color: white;
+}
+
+.post-cliked:hover{
+    border: 1px solid black;
 }
 
 .inputpost {

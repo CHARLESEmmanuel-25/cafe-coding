@@ -86,31 +86,45 @@ const links = document.querySelectorAll('.link-post');
 
 const projetsId = document.querySelectorAll('.link-projet');
 
-links.forEach(link =>{
-    link.addEventListener('click', async(e)=>{
+links.forEach(link => {
+    link.addEventListener('click', async (e) => {
         e.preventDefault();
 
         const postId = e.currentTarget.getAttribute('data-id');
         
-        const res = await fetch(`http://localhost:3000/post/${postId}`);
-       if(!res.ok){
-        throw new Error(`Response status: ${res.status}`);
-       }
+        try {
+            const res = await fetch(`http://localhost:3000/post/${postId}`);
+            if (!res.ok) {
+                throw new Error(`Response status: ${res.status}`);
+            }
 
-       const data = await res.json();
-       const post = data.getPost;
-     
-       const postDescription = document.querySelector('.post-description');
-       const postDate = document.querySelector('.date')
-       const maDate = new Date(post[0].created_at)
-       maDate.toLocaleDateString("fr");
-       alert(maDate);
-       postDescription.innerText = post[0].description;
-       dateFormat(post[0].created_at,postDate );
-       
-       
-    })
+            const data = await res.json();
+            const post = data.getPost;
+
+            if (post && post.length > 0) {
+                const postDescription = document.querySelector('.post-description');
+                const postDate = document.querySelector('.date');
+
+                // Mise à jour de la description
+                postDescription.innerText = post[0].description;
+
+                // Formatage de la date
+                const formattedDate = new Date(post[0].created_at).toLocaleDateString('fr-FR', {
+                    weekday: 'long',
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+                postDate.innerText = formattedDate;
+            } else {
+                console.error('Post not found in response data.');
+            }
+        } catch (error) {
+            console.error('An error occurred:', error.message);
+        }
+    });
 });
+
 
 projetsId.forEach(projetid=>{
     projetid.addEventListener('click', async (e)=>{

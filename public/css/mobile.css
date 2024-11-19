@@ -5,7 +5,6 @@ body {
     background-color: black;
 }
 
-
 /* Media Queries pour mobile uniquement */
 @media (min-width: 390px) and (max-width: 602px) {
 
@@ -14,54 +13,41 @@ body {
         height: auto;
         display: flex;
         justify-content: center;
-        
-        
-        
     }
 
-    .photo-profile img{
+    .photo-profile img {
         border: 1px solid yellow;
         width: 50px;
         height: 50px;
     }
 
-
-    p{
+    p {
         color: white;
     }
 
-    .profile-card{
-        
+    .profile-card {
         margin-bottom: 30%;
         margin-right: 2%;
-       
     }
 
-    .contenair-info{
-       
-       margin-right: 5%;
-       padding: 0;
-       margin-top: 5%;
+    .contenair-info {
+        margin-right: 5%;
+        padding: 0;
+        margin-top: 5%;
     }
     
-    .tweet-post:hover{
+    .tweet-post:hover {
         background-color: rgb(108, 104, 104);
     }
 
-    .dark-light{
+    .dark-light {
         margin-left: 10rem;
     }
 
-    .footer-logo img{
+    .footer-logo img {
         margin-top: 10%;
     }
 
-    .contenair-info{
-        
-        margin-top: 10%;
-       
-    }
-    
     .scrollable {
         width: 100%;
         max-height: 80vh;
@@ -72,48 +58,39 @@ body {
         justify-content: flex-start;
         padding: 6%;
         margin-top: 10%;
-        
-        
-      
     }
 
-    .box-apropos{
-      display: none;
-    }
-
-    .overlay{
+    .box-apropos {
         display: none;
     }
-    
-    .position-media{
+
+    .overlay {
+        display: none;
+    }
+
+    .position-media {
         visibility: visible;
         display: flex;
         flex-direction: column;
     }
-    
-    .user-info{
+
+    .user-info {
         display: flex;
         align-items: center;
-        
     }
-    
-    
-    
-    header{
+
+    header {
         width: 100%;
         height: 250px;
         background-color: rgb(0, 0, 0);
-        
     }
-    
-    footer{
+
+    footer {
         width: 100%;
         height: 10px;
         background-color: rgb(0, 0, 0);
-       
     }
-    
-    
+
     .twitter-post {
         background-color: black;
         border-radius: 8px;
@@ -124,49 +101,49 @@ body {
         flex-direction: column;
         border: 1px solid white;
         margin-top: 5%;
-      
     }
+
     .avatar {
         border-radius: 50%;
         width: 45px;
         height: 45px;
         margin-right: 4%;
     }
-    
+
     .username {
         font-weight: bold;
         font-size: 10px;
     }
+
     .tweet-text {
         margin-top: 10px;
         font-size: 10px;
     }
-    p{
+
+    p {
         font-size: 10px;
     }
-    .image-tweet{
+
+    .image-tweet {
         width: 100%;
     }
 
-    .sidebar
-    {
+    .sidebar {
         display: none;
     }
 
-    .projects-sidebar{
+    .projects-sidebar {
         display: none;
     }
-    
-    .test img{
+
+    .test img {
         background-color: rgba(25, 144, 236, 0.104);
         margin-top: 10%;
     }
-   
-    
-    time{
+
+    time {
         font-size: 10px;
         margin-right: 50%;
-    
     }
-    
-    }
+
+}
