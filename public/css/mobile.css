@@ -15,6 +15,20 @@ body {
         justify-content: center;
     }
 
+    .bar-head{
+        width: 100%;
+        height: 50px;
+        position: fixed;
+        background-color: rgba(39, 38, 38, 0.376);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        filter: brightness(50%);
+        filter: hue-rotate();
+        backdrop-filter: blur(1rem);
+        z-index: 9999;
+    }
+
     .photo-profile img {
         border: 1px solid yellow;
         width: 50px;
