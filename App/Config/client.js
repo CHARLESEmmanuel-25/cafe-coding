@@ -6,11 +6,12 @@ dotenv.config();
 const { Client } = pg;
 
 const client = new Client({
-  user: process.env.DBU,
-  database: process.env.DBN,
-  password: process.env.DBP,
-  port: process.env.DBPORT,
-  host: process.env.HOST
+  user: process.env.DBU || 'devhouse' ,
+  database: process.env.DBN || 'devhouscafe',
+  password: process.env.DBP || 'devemedb',
+  port: process.env.DBPORT || '5432',
+  //host: process.env.HOST || '127.0.0.1',
+ 
 });
 
 // Connexion à la base de données avec gestion des erreurs
