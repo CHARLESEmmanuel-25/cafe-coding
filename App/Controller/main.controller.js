@@ -32,7 +32,7 @@ const mainController = {
             
           })
 
-          console.log(vues);
+          console.log(`Le site a été visité ${vues} fois`);
        
  
        // Rendre les données dans la vue "index" avec toutes les données nécessaires
