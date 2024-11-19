@@ -5,7 +5,8 @@ import { hashPassword } from "../utils/bcrypt.js";
 import bcrypt from 'bcrypt';
 
 
-
+let count = 0;
+const tabCount = [];
 
 const mainController = {
 
@@ -21,10 +22,21 @@ const mainController = {
          mainDatamapper.getPresentation()
        ]);
 
+        count++;
 
+       
+          tabCount.push(count)
+          let vues = null;
+          tabCount.forEach(nb =>{
+            vues = nb++
+            
+          })
+
+          console.log(vues);
+       
  
        // Rendre les données dans la vue "index" avec toutes les données nécessaires
-       res.render('index', { utilisateur, projets, posts, Recentsposts, presentation});
+       res.render('index', { utilisateur, projets, posts, Recentsposts, presentation,vues});
        
      } catch (error) {
        console.error("Erreur lors de la récupération des données :", error.message);
@@ -206,6 +218,9 @@ const mainController = {
 
       
     },
+
+   
+  
 
     deletePost: async (req, res) => {
       try {

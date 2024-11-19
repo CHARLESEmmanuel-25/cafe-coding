@@ -18,6 +18,15 @@ Content-Type: application/json
     "photo": "photo_emmanuel.jpg" 
 }
 
+// mettre a jours les infos user
+
+### PATCH /info/utilisateur/1
+Content-Type: application/json
+
+{
+    
+}
+
 ### POST /login
 
 POST {{url}}/login

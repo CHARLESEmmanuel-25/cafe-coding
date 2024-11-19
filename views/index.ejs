@@ -29,11 +29,18 @@
                     <div class="photo-profile">
                         <img src="/assets/<%= utilisateur[0].photo %>" alt="Photo de profil" id="photo-profil" >
                     </div>
-                    <p class="pseudo"><%= utilisateur[0].nom %> <%= utilisateur[0].prenom %></p>
-                    <p class="text-header">
+                    <p class="pseudo is-size-6"><%= utilisateur[0].nom %> <%= utilisateur[0].prenom %></p>
+                    
+                    <p class="text-header ">
                         JavaScript, Node.js, React, PostgreSQL<br>
                         <%= utilisateur[0].short_description %>
                     </p>
+
+         
+                    
+
+                    <p><%= vues %></p>
+
                 </div>
             </div>
             
@@ -47,7 +54,7 @@
                 <div class="connexion box box-connexion" role="dialog" aria-labelledby="modal-title" aria-modal="true">
                     
                     <!-- Bouton de fermeture de la modale -->
-                    <div class="close has-text-right is-size-6 connexion-close">
+                    <div class="close has-text-right  connexion-close">
                         <i class="fa-regular fa-circle-xmark"></i> <!-- Icône de fermeture -->
                     </div>
             
@@ -68,14 +75,18 @@
             
             
             <div class="projects-sidebar">
-                <h2>Mes Projets</h2>
+                <h2 class="is-size-6">Mes Projets</h2>
 
                
                     <div class="project-category">
 
                         <ul>
                             <% projets.forEach(projet => { %>
-                            <li><a href="#" data-id="<%= projet.id%>" class="link-projet">#<%= projet.nom %></a></li>
+                            <li class="sidebar-projet"><a href="#" data-id="<%= projet.id%>" class="link-projet">#<%= projet.nom %></a>
+                                <time class="has-text-left date" datetime="<%= projet.created_at.toISOString() %>">
+                                    <%= new Date(projet.created_at).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %>
+                                </time>
+                            </li>
                             <% }) %>
                         </ul>
                     </div>
@@ -84,16 +95,16 @@
             <aside class="sidebar">
               
                 <div class="profile-info">
-                    <h2 id="show-about"><a href="#" id="about">À Propos de Moi</a></h2>
-                    <p class="is-size-7"><%= presentation[0].short_presentation %></p>
-                    <p class="is-size-7">Contact: <%= utilisateur[0].mail%></p>
+                    <h2 class="is-size-6 " id="show-about"><a href="#" id="about" class="has-text-white">À Propos de Moi</a></h2>
+                    <p class=""><%= presentation[0].short_presentation %></p>
+                    
                     
                 </div>
                 <p>LinkedIn: <a href="https://www.linkedin.com/in/emmanuel-charles-developpeur-informatique/">lien vers mon profil</a></p>
                 <div class="recent-posts">
-                    <h2>Posts Récents</h2>
+                    <h2 class="is-size-6 titre-recents ">Posts Récents</h2>
                     <% Recentsposts.forEach(recentPost => { %>
-                        <div class="post postRecents"id="post-date" data-id="<%= recentPost.id %>" ><a href=""><%= recentPost.titre %></a> <small class="has-text-grey-light">
+                        <div class="post postRecents"id="post-date" data-id="<%= recentPost.id %>" ><a class="is-size-7" href=""><%= recentPost.titre %></a> <small class="has-text-grey-light">
                             <time class="has-text-left date" datetime="<%= recentPost.created_at.toISOString() %>">
                                 <%= new Date(recentPost.created_at).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %>
                             </time>
@@ -108,7 +119,7 @@
                 <div class="box box-apropos modalProjet has-background-black" id="about-modal" role="dialog" aria-labelledby="about-title" aria-modal="true" id="projetModal">
                     
                     <!-- Bouton de fermeture de la modale -->
-                    <div class="close close-projet has-text-right is-size-6">
+                    <div class="close close-projet has-text-right ">
                         <i class="fa-regular fa-circle-xmark"></i> <!-- Icône de fermeture -->
                     </div>
             
@@ -124,11 +135,11 @@
                         </div>
                         
                         <h3 class="projet-nom"></h3>
-                        <p class="projet-description"><strong>Description :</strong> Plateforme de mise en relation entre propriétaires de voitures et nettoyeurs professionnels. Développement full-stack avec gestion de réservations, profils utilisateurs, et système de paiement sécurisé.</p>
+                        <p class="projet-description "><strong>Description :</strong> Plateforme de mise en relation entre propriétaires de voitures et nettoyeurs professionnels. Développement full-stack avec gestion de réservations, profils utilisateurs, et système de paiement sécurisé.</p>
                         
-                        <p class="projet-tech"><strong>Technologies :</strong> Node.js, React, PostgreSQL, API Stripe</p>
+                        <p class="projet-tech "><strong>Technologies :</strong> Node.js, React, PostgreSQL, API Stripe</p>
                         
-                        <p class="projet-defis"><strong>Défis :</strong> Intégration d'un calendrier de disponibilité en temps réel et mise en place d'un système de notifications pour les réservations.</p>
+                        <p class="projet-defis "><strong>Défis :</strong> Intégration d'un calendrier de disponibilité en temps réel et mise en place d'un système de notifications pour les réservations.</p>
                         
                         <p class="projet-resultat"><strong>Résultats :</strong> Application fonctionnelle avec des réservations en temps réel et des retours positifs sur l'interface utilisateur et l'expérience.</p>
                         
@@ -143,7 +154,7 @@
                 <div class="box box-apropos has-background-black has-text-white" id="modal-content" role="dialog" aria-labelledby="about-title" aria-modal="true">
                     
                     <!-- Bouton de fermeture de la modale -->
-                    <div class="close close-post has-text-right is-size-6">
+                    <div class="close close-post has-text-right ">
                         <i class="fa-regular fa-circle-xmark"></i> <!-- Icône de fermeture -->
                     </div>
             
@@ -185,7 +196,7 @@
                 <div class="box box-apropos has-background-black   " id="about-modal" role="dialog" aria-labelledby="about-title" aria-modal="true">
                     
                     <!-- Bouton de fermeture de la modale -->
-                    <div class="close close-about has-text-right is-size-6">
+                    <div class="close close-about has-text-right ">
                         <i class="fa-regular fa-circle-xmark"></i> <!-- Icône de fermeture -->
                     </div>
             
@@ -194,13 +205,15 @@
                     <p class="has-text-white"><%= presentation.short_presentation %></p>
                     
                     <h3>Mon Parcours</h3>
-                    <p><%= presentation[0].description %>. Actuellement je suit un <strong><%= presentation[0].formation %></strong> au sein de l'école  <strong><%= presentation[0].ecole %>.</strong> </p>
+                    <p class=""><%= presentation[0].description %>. Actuellement je suit un <strong><%= presentation[0].formation %></strong> au sein de l'école  <strong><%= presentation[0].ecole %>.</strong> </p>
+                    <p class="">Contactez moi : <%= utilisateur[0].mail%></p>
                     
                     <h3>Competances technique</h3>
-                    <p> je travail frequement avec les technologies suivante : <strong>Node.js</strong> et <strong>PHP</strong>. Pour les bases de données j'utilise souvent : <strong>PostgreSQL</strong> et <strong>MongoDB</strong>. Côté frontend, je maîtrise <strong>HTML/CSS</strong>, <strong>JavaScript</strong> et <strong>React</strong></p>
+                    <p class=""> je travail frequement avec les technologies suivante : <strong>Node.js</strong> et <strong>PHP</strong>. Pour les bases de données j'utilise souvent : <strong>PostgreSQL</strong> et <strong>MongoDB</strong>. Côté frontend, je maîtrise <strong>HTML/CSS</strong>, <strong>JavaScript</strong> et <strong>React</strong></p>
                     
                     <h3>Mes Ambitions</h3>
-                    <p><%= presentation[0].ambitions %>.</p>
+                    <p class=""><%= presentation[0].ambitions %>.</p>
+                    
                 </div>
             </div>
             
@@ -221,8 +234,12 @@
                     <div class="media-content">
                         <div class="content">
                            
-                            <p class="tweet-text"><%= post.description %> #Twitter</p>
-                            <img class="image-tweet is-240x245" src="/assets/coonect_booking.png" alt="Image du tweet" style="max-width: 100%; height: auto;"> <!-- Ajout de styles pour rendre l'image responsive -->
+                            <p class="tweet-text "><%= post.description %> #cafe_dev</p>
+                           <!-- Ajout de styles pour rendre l'image responsive -->
+                            <video class="image-tweet is-240x245" style="max-width: 100%; height: auto" controls>
+                                <source src="/assets/javajee.mp4" type="video/mp4">
+                                Votre navigateur ne supporte pas la balise vidéo.
+                            </video>
                         </div>
                     </div>
                 </div>

@@ -177,7 +177,9 @@ const mainDatamapper = {
     
         const result = await client.query(query);
         return result.rows; // Retourne directement les lignes du résultat
-    }
+    },
+
+
 
 
     
