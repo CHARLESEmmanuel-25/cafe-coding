@@ -25,7 +25,8 @@ body {
         align-items: center;
         filter: brightness(50%);
         filter: hue-rotate();
-        backdrop-filter: blur(2rem);
+        backdrop-filter: blur(1rem);
+        -webkit-backdrop-filter: blur(1rem);
         z-index: 9999;
     }
 
