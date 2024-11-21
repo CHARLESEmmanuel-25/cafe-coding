@@ -7,6 +7,22 @@ const btnConnexion = document.querySelector('.user-avatar');
 const modalCoonexion = document.querySelector('.overlayConnexion');
 const modalProjet = document.querySelector('.overlayProjet');
 const btnCloseProjet = document.querySelector('.close-projet')
+const btnCloseMobileProject = document.querySelector('.close-projetmobile');
+const modalProjetMobile = document.querySelector('.contenair-infomobile');
+const btnshowProjectMobile = document.querySelectorAll('.btn-linkMobile');
+
+btnshowProjectMobile.forEach((btnlink) => {
+    btnlink.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalProjetMobile.classList.remove('hidden')
+        
+    });
+});
+
+btnCloseMobileProject.addEventListener('click', (e) => {
+    e.preventDefault();
+    modalProjetMobile.classList.add('hidden');
+});
 
 
 
@@ -33,11 +49,19 @@ if (closeBtnConnexion) {
     });
 }
 
+
+
 if (btnCloseProjet) {
     btnCloseProjet.addEventListener('click', ()=>{
         closeOverlay(modalProjet);
     })
 }
+
+
+
+    
+   
+
 
 
 function openOverlay(overlayName) {
