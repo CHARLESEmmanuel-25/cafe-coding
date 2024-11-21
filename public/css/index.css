@@ -614,3 +614,11 @@ input[type="password"] {
   background-color: red;
 }
 
+.nav-mobile{
+    display: none;
+}
+
+.contenair-infomobile{
+    display: none;
+}
+

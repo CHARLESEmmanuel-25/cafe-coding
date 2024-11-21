@@ -37,9 +37,6 @@
                     <%= utilisateur[0].short_description %>
                 </p>
 
-
-         
-
                 </div>
             </div>
             
@@ -49,6 +46,40 @@
 
     <main class="container  ">
         <section class="scrollable">
+            <div class="contenair-infomobile hidden">
+
+               <div class="mesprojets-mobile">
+                     <!-- Bouton de fermeture de la modale -->
+                     <div class="close  has-text-right has-text-white close-projetmobile">
+                        <i class="fa-regular fa-circle-xmark close-projetmobile"></i> <!-- Icône de fermeture -->
+                    </div>
+
+                    <h1 class="has-text-white">Mes projets</h1>
+
+                    <div class="content-mobileprojet">
+                        <% projets.forEach(projet => { %>
+                            <div class="card-projetmobile">
+                                <h3 class="projet-nom text-projetmobile is-size-6"><%= projet.nom %></h3>
+                                <p class="projet-description text-projetmobile"><strong class="has-text-white">Description :</strong class="has-text-white"> <%= projet.description %></p>
+                                <p class="projet-tech text-projetmobile"><strong class="has-text-white">Technologies :</strong class="has-text-white"> <%= projet.tech %></p>
+                                <p class="projet-defis text-projetmobile"><strong class="has-text-white">Défis :</strong class="has-text-white"> <%= projet.defis %></p>
+                                <p class="projet-resultat text-projetmobile"><strong class="has-text-white">Résultats :</strong class="has-text-white"> <%= projet.resultats %></p>
+                                <p class="text-projetmobile"><strong class="has-text-white" >Voir le projet :</strong class="has-text-white"> 
+                                    <a href="https://lien-vers-la-demo.com" target="_blank">Démo</a> | 
+                                    <a href="https://github.com/ton-github/projet" target="_blank">Code Source</a>
+                                </p>
+                            </div>
+                        <% }); %>
+
+                        
+                        
+                       
+                    </div>
+            
+               </div>
+            
+            
+              </div>
             <div class="overlay overlayConnexion">
                 <div class="connexion box box-connexion" role="dialog" aria-labelledby="modal-title" aria-modal="true">
                     
@@ -257,22 +288,38 @@
          </a>
     <% }) %>
 
-  
+
  
         </section>
 
-
+       
       
         
     </main>
 
     <footer class="container footer-logo">
-        <ul>
-            
-            <li class="logo-footer"><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-            <li class="logo-footer"><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
-            <li class="logo-footer"><a href="#"><i class="fa-brands fa-github"></i></a></li>
-        </ul>
+      
+        <div class="nav-mobile">
+            <ul>
+               <a href="" class="btn-linkMobile">
+                <li class="icon-nav is-size-7 has-text-white" ><i class="fa-solid fa-house has-text-white"></i>
+                    Home
+                </li>
+               </a>
+               <a href="" class="btn-linkMobile">
+                <li class="icon-nav is-size-7 has-text-white" >
+                    <i class="fa-solid fa-list-check  has-text-white"></i>
+                    Mes projets
+                </li>
+               </a>
+                <a href="" class="btn-linkMobile">
+                    <li class="icon-nav is-size-7 has-text-white" >
+                        <i class="fa-solid fa-address-card  has-text-white"></i>
+                        A propos
+                    </li>
+                </a>
+            </ul>
+        </div>
     </footer>
     <script src="/js/index.js"></script>
     <script src="/js/Call.js"></script>

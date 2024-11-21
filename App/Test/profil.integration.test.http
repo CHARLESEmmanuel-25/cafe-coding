@@ -55,17 +55,17 @@ Content-Type: application/json
 POST {{url}}/projet/create
 Content-Type: application/json
 
-{
-    "nom": "Coonect",
-    "description": "🚗✨ En dev : Coonect, la plateforme qui connecte propriétaires de voitures et nettoyeurs pros ! Trouvez, réservez et payez facilement un nettoyage auto près de chez vous. Gestion simplifiée pour les pros avec profils, tarifs et calendrier intégré. J’ai eu l’idée en cherchant à nettoyer ma voiture… mais sans finir trempé ! 😅 #Coonect #NettoyageAuto #Tech",
-    "techno": "#js #nodejs #postgres",
-    "defis": "Coonect a ses défis : synchroniser les plannings, sécuriser les paiements, assurer la scalabilité et optimiser l’expérience pour clients et nettoyeurs… ça va prendre bien plus de temps que prévu ! 💪 #Coonect #Tech #Développement",
-    "duree": "En cours",
-    "photo": "coonect.jpg",
-    "resultats": "Pour le moment, je développe le front-end du projet pour créer une interface simple et intuitive.",
-    "lienDemo": "",
-    "lienGithub": "https://github.com/CHARLESEmmanuel-25/Coonect-front"
-}
+  {
+    "nom": "Projet Alpha",
+    "description": "Description du projet Alpha",
+    "tech": "JavaScript, Node.js",
+    "defis": "Optimisation des performances, Scalabilité",
+    "duree_realisation": "3 mois",
+    "resultats": "Application fonctionnelle, Performance améliorée",
+    "photo": "url_de_photo_alpha.jpg",
+    "lien_demo": "https://lien-vers-la-demo-alpha.com",
+    "lien_github": "https://github.com/utilisateur/projet-alpha"
+  }
 
 ### DELETED /projet/:idProjet
 
