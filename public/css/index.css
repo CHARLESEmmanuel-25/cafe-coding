@@ -21,10 +21,12 @@ main {
     background-color: black;
 }
 
-.user-avatar{
-    color: white;
-    margin-right: 9%;
-    cursor: pointer;
+.menu-mobile{
+    visibility: hidden;
+}
+
+.theme-color{
+    margin-right: 5%;
 }
 
 .dark-light{
