@@ -10,11 +10,21 @@ const btnCloseProjet = document.querySelector('.close-projet')
 const btnCloseMobileProject = document.querySelector('.close-projetmobile');
 const modalProjetMobile = document.querySelector('.contenair-infomobile');
 const btnshowProjectMobile = document.querySelectorAll('.btn-linkMobile');
+const btnMenuDeroulant = document.querySelector('.menu-mobile');
+const modalMenuDeroulant = document.querySelector('.nav-mobile');
+
+const state = null ;
+btnMenuDeroulant.addEventListener('click', () => {
+    modalMenuDeroulant.classList.toggle('hidden');
+    console.log(modalMenuDeroulant.classList);
+});
+
 
 btnshowProjectMobile.forEach((btnlink) => {
     btnlink.addEventListener('click', (e) => {
         e.preventDefault();
-        modalProjetMobile.classList.remove('hidden')
+        modalProjetMobile.classList.remove('hidden');
+        modalMenuDeroulant.classList.add('hidden');
         
     });
 });
