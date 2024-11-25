@@ -12,6 +12,8 @@ const modalProjetMobile = document.querySelector('.contenair-infomobile');
 const btnshowProjectMobile = document.querySelectorAll('.btn-linkMobile');
 const btnMenuDeroulant = document.querySelector('.menu-mobile');
 const modalMenuDeroulant = document.querySelector('.nav-mobile');
+const modalAboutMobile = document.querySelector('.card-projetmobile');
+
 
 const state = null ;
 btnMenuDeroulant.addEventListener('click', () => {
@@ -27,7 +29,33 @@ btnshowProjectMobile.forEach((btnlink) => {
         modalMenuDeroulant.classList.add('hidden');
         
     });
+    
+let aboutContentLoaded = false;
+
+btnlink.addEventListener('click', async (e) => {
+    const titleMobile = document.querySelector('.title-mobile');
+    const test = document.querySelector('.presentation-mobile')
+    
+    const apropos = e.target.textContent.trim();
+    if (apropos === 'A propos') {
+        titleMobile.textContent='A propos';
+        test.classList.remove('hidden');
+        modalAboutMobile.classList.add('hidden');
+        console.log(titleMobile);
+    } else
+    {
+        titleMobile.textContent='Mes projets';
+        modalAboutMobile.classList.remove('hidden');
+        test.classList.add('hidden');
+    }
 });
+
+
+ 
+    
+});
+
+
 
 btnCloseMobileProject.addEventListener('click', (e) => {
     e.preventDefault();

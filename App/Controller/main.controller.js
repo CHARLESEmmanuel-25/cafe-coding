@@ -45,6 +45,20 @@ const mainController = {
      }
    },
 
+   onePresentation: async (req, res) => {
+    try {
+        const presentation = await mainDatamapper.onPresentation();
+        if (!presentation) {
+            return res.status(404).json({ error: "Aucune présentation trouvée." });
+        }
+        return res.status(200).json(presentation); // Code 200 pour une récupération réussie
+    } catch (error) {
+        console.error("Erreur lors de la récupération de la présentation :", error.message);
+        return res.status(500).json({ error: "Erreur interne du serveur." });
+    }
+  },
+
+
    createPresentation: async (req, res) => {
     try {
         const idUser = req.session.userId;

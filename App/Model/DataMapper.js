@@ -30,6 +30,11 @@ const mainDatamapper = {
         return res.rows;
     },
 
+    onPresentation : async()=>{
+        const res = await client.query("SELECT * FROM presentation LIMIT 1");
+        return res.rows[0];
+    },
+
     getProjets : async()=>{
 
         const res = await client.query("select * from projet");
@@ -178,6 +183,7 @@ const mainDatamapper = {
         const result = await client.query(query);
         return result.rows; // Retourne directement les lignes du résultat
     },
+   
 
 
 
