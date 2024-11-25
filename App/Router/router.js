@@ -19,6 +19,8 @@ router.post('/signing', mainController.register);
 
 
 router.post('/presentation/create', mainController.createPresentation);
+router.get('/presentation', mainController.onePresentation);
+
 
 // profile
 router.post('/projet/create', mainController.creatProjet);

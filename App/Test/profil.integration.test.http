@@ -103,3 +103,9 @@ Content-Type: application/json
     "ambitions": "Devenir expert en technologies JavaScript et contribuer à des projets innovants"
 }
 
+###GET
+
+GET {{url}}/presentation/
+Content-Type: application/json
+
+

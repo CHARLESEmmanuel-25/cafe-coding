@@ -54,7 +54,7 @@
                         <i class="fa-regular fa-circle-xmark close-projetmobile"></i> <!-- Icône de fermeture -->
                     </div>
 
-                    <h1 class="has-text-white">Mes projets</h1>
+                    <h1 class="has-text-white title-mobile">Mes projets</h1>
 
                     <div class="content-mobileprojet">
                         <% projets.forEach(projet => { %>
@@ -71,10 +71,36 @@
                             </div>
                         <% }); %>
 
+                       
+                    </div>
+
+                    <div class="content-mobileprojet">
+                            
+                            <div class="card-projetmobile presentation-mobile">
+                               
+            
+                                <p class="has-text-white"><%= presentation.short_presentation %></p>
+                                
+                                <h2 class="has-text-white">Mon Parcours</h2>
+                                <p class="has-text-white"><%= presentation[0].description %>. Actuellement je suit un <strong class="has-text-white"><%= presentation[0].formation %></strong> au sein de l'école  <strong class="has-text-white"><%= presentation[0].ecole %>.</strong> </p>
+                                <p class="has-text-white">Contactez moi : <%= utilisateur[0].mail%></p>
+                                
+                                <h2 class="has-text-white">Competances technique</h2>
+                                <p class="has-text-white"> je travail frequement avec les technologies suivante : <strong class="has-text-white">Node.js</strong> et <strong class="has-text-white">PHP</strong>. Pour les bases de données j'utilise souvent : <strong class="has-text-white">PostgreSQL</strong> et <strong class="has-text-white">MongoDB</strong>. Côté frontend, je maîtrise <strong class="has-text-white">HTML/CSS</strong>, <strong class="has-text-white">JavaScript</strong> et <strong class="has-text-white">React</strong></p>
+                                
+                                <h2 class="has-text-white">Mes Ambitions</h2>
+                                <p class="has-text-white"><%= presentation[0].ambitions %>.</p>
+                            </div>
+                        
+
                         
                         
                        
                     </div>
+
+
+
+
             
                </div>
             
@@ -267,9 +293,8 @@
                             <p class="tweet-text "><%= post.description %> #cafe_dev</p>
                            <!-- Ajout de styles pour rendre l'image responsive -->
                             <video class="image-tweet is-240x245" style="max-width: 100%; height: auto" controls  poster="/assets/interfacegrp.png">
-
-                                <source src="/assets/javajee.mp4" type="video/mp4" ">
-                                 Votre navigateur ne supporte pas la balise vidéo.
+                                <source src="/assets/javajee.mp4" type="video/mp4" controls poster =>
+                                Votre navigateur ne supporte pas la balise vidéo.
                             </video>
                         </div>
                     </div>
@@ -296,9 +321,7 @@
        
         <div class="nav-mobile hidden">
             <ul>
-               <a href="" class="btn-linkMobile has-text-white">
-                    Home
-               </a>
+              
                <a href="" class="btn-linkMobile has-text-white">
                     Mes projets
                </a>
