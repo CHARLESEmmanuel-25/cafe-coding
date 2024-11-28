@@ -272,7 +272,7 @@ async function dateFormat(date,Element,){
 document.addEventListener("DOMContentLoaded", async () => {
     try {
         // obtenir les données des posts
-        const response = await fetch("http://localhost:3000/posts/all");
+        const response = await fetch("https://cafe-coding.onrender.com/posts/all");
         const posts = await response.json();
 
         posts.forEach((post) => {
