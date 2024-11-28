@@ -8,6 +8,7 @@ const router = Router();
 
 
 router.get('/', mainController.All);
+router.get('/posts/all', mainController.postsAll);
 router.get('/post/:id', mainController.postByid);
 router.get('/projet/:id', mainController.projetByid);
 

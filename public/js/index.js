@@ -13,6 +13,8 @@ const btnshowProjectMobile = document.querySelectorAll('.btn-linkMobile');
 const btnMenuDeroulant = document.querySelector('.menu-mobile');
 const modalMenuDeroulant = document.querySelector('.nav-mobile');
 const modalAboutMobile = document.querySelector('.card-projetmobile');
+const media = document.querySelector('.content');
+
 
 
 const state = null ;
@@ -265,6 +267,62 @@ async function dateFormat(date,Element,){
 
 }
 
-// lancement de la page 
+// all posts
+
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        // obtenir les données des posts
+        const response = await fetch("http://localhost:3000/posts/all");
+        const posts = await response.json();
+
+        posts.forEach((post) => {
+           
+            const mediaContainer = document.getElementById(`media-container-${post.id}`);
+            if (!mediaContainer) {
+                console.warn(`Conteneur de média introuvable pour le post ID: ${post.id}`);
+                return;
+            }
+
+            // déterminer le type de média
+            const mediaExtension = post.photo.split('.').pop().toLowerCase();
+            if (["mp4", "webm", "ogg"].includes(mediaExtension)) {
+               
+                const videoElement = document.createElement("video");
+                videoElement.setAttribute("controls", "true");
+                videoElement.classList.add("project-video");
+                videoElement.style.maxWidth = "100%";
+                videoElement.style.height = "auto";
+
+                
+                const sourceElement = document.createElement("source");
+                sourceElement.setAttribute("src", `/assets/${post.photo}`);
+                sourceElement.setAttribute("type", `video/${mediaExtension}`);
+                videoElement.appendChild(sourceElement);
+
+                
+                videoElement.innerHTML += "Votre navigateur ne supporte pas la balise vidéo.";
+
+                // Insérer la vidéo dans le conteneur
+                mediaContainer.appendChild(videoElement);
+            } else if (["jpg", "jpeg", "png", "gif"].includes(mediaExtension)) {
+                // Créer une balise image
+                const imgElement = document.createElement("img");
+                imgElement.setAttribute("src", `/assets/${post.photo}`);
+                imgElement.setAttribute("alt", "Média du post");
+                imgElement.classList.add("image-tweet", "is-240x245");
+                imgElement.style.maxWidth = "100%";
+                imgElement.style.height = "auto";
+
+                // Insérer l'image dans le conteneur
+                mediaContainer.appendChild(imgElement);
+            } else {
+                console.warn(`Type de média non supporté pour le fichier : ${post.photo}`);
+            }
+        });
+    } catch (error) {
+        console.error("Erreur lors de la récupération des données :", error);
+    }
+});
+
 
 

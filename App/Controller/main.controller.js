@@ -45,6 +45,7 @@ const mainController = {
      }
    },
 
+
    onePresentation: async (req, res) => {
     try {
         const presentation = await mainDatamapper.onPresentation();
@@ -57,7 +58,6 @@ const mainController = {
         return res.status(500).json({ error: "Erreur interne du serveur." });
     }
   },
-
 
    createPresentation: async (req, res) => {
     try {
@@ -303,9 +303,21 @@ const mainController = {
         }
         
         res.render('dashbord');
-    }
+    },
   
-    
+    postsAll: async (req, res) => {
+        try {
+            const posts = await mainDatamapper.posts();
+            if (!posts || posts.length === 0) { 
+                return res.status(404).json({ error: "Aucun post trouvé." });
+            }
+            return res.status(200).json(posts); 
+        } catch (error) {
+            console.error("Erreur lors de la récupération des posts :", error); 
+            return res.status(500).json({ error: "Erreur interne du serveur." });
+        }
+    },
+  
     
     
     
