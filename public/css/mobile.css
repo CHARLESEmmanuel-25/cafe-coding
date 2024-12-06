@@ -176,6 +176,14 @@ body {
         z-index: 9999;
     }
 
+    .situationtag {
+        position: absolute;
+        right: 5%;
+        top: 65%;
+       
+    }
+    
+
     .nav-mobile {
         top: 5%;
         position: fixed;
