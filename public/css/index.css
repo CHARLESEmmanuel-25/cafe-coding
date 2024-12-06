@@ -627,5 +627,11 @@ input[type="password"] {
     display: none;
 }
 
+.situationtag{
+   margin-top: 1%;
+}
 
+.tagsituation{
+    margin-left: 1%;
+}
 
