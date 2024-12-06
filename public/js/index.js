@@ -1,3 +1,5 @@
+
+
 const aboutBtn = document.querySelector('.profile-info');
 const overlay = document.querySelector('.overlay');
 const closeBtnConnexion = document.querySelector('.connexion-close');
@@ -130,6 +132,9 @@ projets.forEach((projet)=>{
 
 });
 
+
+
+
 const posts = document.querySelectorAll('.twitter-post');
 const overlayPost = document.querySelector('.overlayPost');
 const closePostBtn = document.querySelector('.close-post');
@@ -204,22 +209,42 @@ projetsId.forEach(projetid=>{
 
         const data = await res.json();
         const projetbyId = data.getProjet;
-
-        const nomProjet = document.querySelector('.projet-nom');
-        const description =document.querySelector('.projet-description');
-        const technologies = document.querySelector('.projet-tech');
-        const defis = document.querySelector('.projet-defis');
-        const resultats = document.querySelector('.projet-resultat');
-
-        nomProjet.innerText = `Nom du projet : ${projetbyId[0].nom}`;
-        description.innerText = projetbyId[0].description;
-        defis.innerText = `Défis : ${projetbyId[0].defis}`;
-        resultats.innerText = `Résultat: ${projetbyId[0].defis}`;
     
+        const contenairProjetc = document.querySelector('.modalProjet');
 
+        const projetHTML = `
+        <div class="project">
+        <!-- Espace pour l'image ou la vidéo -->
+        <div class="project-media">
         
+            <!-- Pour une vidéo, remplace l'image ci-dessus par une balise vidéo -->
+            <!-- <video controls class="project-video">
+                <source src="lien-vers-video-projet1.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la balise vidéo.
+            </video> -->
+        </div>
         
-
+        <h3 class="projet-nom">Nom du projet : ${projetbyId[0].nom}</h3>
+        <p class="projet-description "><strong>Description :</strong> ${projetbyId[0].description}</p>
+        
+        <p class="projet-tech "><strong>Technologies :</strong>${projetbyId[0].tech}</p>
+        
+        <p class="projet-defis "><strong>Défis :</strong> ${projetbyId[0].defis}</p>
+        
+        <p class="projet-resultat"><strong>Résultats :</strong> ${projetbyId[0].defis}</p>
+        
+        <p><strong>Voir le projet :</strong> 
+            <a href="${projetbyId[0].lien_demo}" target="_blank">Démo</a> | 
+            <a href="${projetbyId[0].lien_github}" target="_blank">Code Source</a>
+        </p>
+        </div>
+        
+        `
+        
+        contenairProjetc.insertAdjacentHTML('beforeend',projetHTML )
+        document.querySelector('.close-projet').addEventListener('click', () => {
+            location.reload(); // Rafraîchir la page
+        });
 
     });
 

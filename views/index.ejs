@@ -140,11 +140,13 @@
 
                         <ul>
                             <% projets.forEach(projet => { %>
-                            <li class="sidebar-projet"><a href="#" data-id="<%= projet.id%>" class="link-projet">#<%= projet.nom %></a>
-                                <time class="has-text-left date" datetime="<%= projet.created_at.toISOString() %>">
-                                    <%= new Date(projet.created_at).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %>
-                                </time>
-                            </li>
+                            
+                                <li class="sidebar-projet"><a href="#" data-id="<%= projet.id%>" class="link-projet">#<%= projet.nom %></a>
+                                    <time class="has-text-left date" datetime="<%= projet.created_at.toISOString() %>">
+                                        <%= new Date(projet.created_at).toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }) %>
+                                    </time>
+                                </li>
+                        
                             <% }) %>
                         </ul>
                     </div>
@@ -173,41 +175,20 @@
                     <!-- Ajoutez d'autres posts récents ici -->
                 </div>
             </aside>
+
             <div class="overlay overlayProjet ">
                 <div class="box box-apropos modalProjet has-background-black" id="about-modal" role="dialog" aria-labelledby="about-title" aria-modal="true" id="projetModal">
-                    
-                    <!-- Bouton de fermeture de la modale -->
+                            <!-- Bouton de fermeture de la modale -->
                     <div class="close close-projet has-text-right ">
                         <i class="fa-regular fa-circle-xmark"></i> <!-- Icône de fermeture -->
                     </div>
-            
-                    <div class="project">
-                        <!-- Espace pour l'image ou la vidéo -->
-                        <div class="project-media">
-                           
-                            <!-- Pour une vidéo, remplace l'image ci-dessus par une balise vidéo -->
-                            <!-- <video controls class="project-video">
-                                <source src="lien-vers-video-projet1.mp4" type="video/mp4">
-                                Votre navigateur ne supporte pas la balise vidéo.
-                            </video> -->
-                        </div>
-                        
-                        <h3 class="projet-nom"></h3>
-                        <p class="projet-description "><strong>Description :</strong> Plateforme de mise en relation entre propriétaires de voitures et nettoyeurs professionnels. Développement full-stack avec gestion de réservations, profils utilisateurs, et système de paiement sécurisé.</p>
-                        
-                        <p class="projet-tech "><strong>Technologies :</strong> Node.js, React, PostgreSQL, API Stripe</p>
-                        
-                        <p class="projet-defis "><strong>Défis :</strong> Intégration d'un calendrier de disponibilité en temps réel et mise en place d'un système de notifications pour les réservations.</p>
-                        
-                        <p class="projet-resultat"><strong>Résultats :</strong> Application fonctionnelle avec des réservations en temps réel et des retours positifs sur l'interface utilisateur et l'expérience.</p>
-                        
-                        <p><strong>Voir le projet :</strong> 
-                            <a href="https://lien-vers-la-demo.com" target="_blank">Démo</a> | 
-                            <a href="https://github.com/ton-github/projet" target="_blank">Code Source</a>
-                        </p>
-                    </div>
+
                 </div>
+
+
+                
             </div>
+  
             <div class="overlay overlayPost  ">
                 <div class="box box-apropos has-background-black has-text-white" id="modal-content" role="dialog" aria-labelledby="about-title" aria-modal="true">
                     
