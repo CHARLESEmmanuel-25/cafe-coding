@@ -165,7 +165,7 @@ links.forEach(link => {
         const postId = e.currentTarget.getAttribute('data-id');
         
         try {
-            const res = await fetch(`https://cafe-coding.onrender.com//post/${postId}`);
+            const res = await fetch(`https://cafe-coding.onrender.com/post/${postId}`);
             if (!res.ok) {
                 throw new Error(`Response status: ${res.status}`);
             }
@@ -202,7 +202,7 @@ projetsId.forEach(projetid=>{
     projetid.addEventListener('click', async (e)=>{
         e.preventDefault();
         const id = e.currentTarget.getAttribute('data-id');
-        const res = await fetch(`https://cafe-coding.onrender.com//projet/${id}`);
+        const res = await fetch(`https://cafe-coding.onrender.com/projet/${id}`);
         if (!res.ok) {
             throw new Error(`Response status: ${res.status}`);
         }
