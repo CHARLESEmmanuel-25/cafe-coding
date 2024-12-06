@@ -628,9 +628,11 @@ input[type="password"] {
 }
 
 .situationtag{
-   margin-top: 1%;
-   margin-bottom: 1%;
+  position: absolute;
+   top: 25rem;
+   
    padding: 0;
+   right: 8%;
 }
 
 .tagsituation{
