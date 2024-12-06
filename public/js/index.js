@@ -14,6 +14,7 @@ const btnMenuDeroulant = document.querySelector('.menu-mobile');
 const modalMenuDeroulant = document.querySelector('.nav-mobile');
 const modalAboutMobile = document.querySelector('.card-projetmobile');
 const media = document.querySelector('.content');
+const hideModalprojet = document.querySelector('.projets-modal');
 
 
 
@@ -42,12 +43,14 @@ btnlink.addEventListener('click', async (e) => {
     if (apropos === 'A propos') {
         titleMobile.textContent='A propos';
         test.classList.remove('hidden');
+        hideModalprojet.classList.add('hidden');
         modalAboutMobile.classList.add('hidden');
-        console.log(titleMobile);
+     
     } else
     {
         titleMobile.textContent='Mes projets';
         modalAboutMobile.classList.remove('hidden');
+        hideModalprojet.classList.remove('hidden');
         test.classList.add('hidden');
     }
 });
