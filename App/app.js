@@ -22,7 +22,7 @@ app.use(express.static(path.join(process.cwd(), 'public')));
 // CORS handler
 app.use(
     cors({
-      origin: 'http://localhost:3000',
+      origin: ['http://localhost:3000','https://cafe-coding.onrender.com'],
       credentials: true,
     })
   );
