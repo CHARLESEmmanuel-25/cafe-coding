@@ -176,6 +176,9 @@ links.forEach(link => {
             if (post && post.length > 0) {
                 const postDescription = document.querySelector('.post-description');
                 const postDate = document.querySelector('.date');
+                 const postImageOverlay = document.querySelector('.imageOverlay');
+
+                 postImageOverlay.innerHTML +=` <img class="image-tweet is-240x245" src="/assets/${post[0].photo}" alt="Image du tweet" style="max-width: 100%; height: auto;">`
 
                 // Mise à jour de la description
                 postDescription.innerText = post[0].description;
