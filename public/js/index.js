@@ -165,7 +165,7 @@ links.forEach(link => {
         const postId = e.currentTarget.getAttribute('data-id');
         
         try {
-            const res = await fetch(`http://localhost:3000/post/${postId}`);
+            const res = await fetch(`https://emmanuel-charles.onrender.com/post/${postId}`);
             if (!res.ok) {
                 throw new Error(`Response status: ${res.status}`);
             }
@@ -319,7 +319,7 @@ async function dateFormat(date,Element,){
 document.addEventListener("DOMContentLoaded", async () => {
     try {
         // obtenir les données des posts
-        const response = await fetch("https://cafe-coding.onrender.com/posts/all");
+        const response = await fetch("https://emmanuel-charles.onrender.com/posts/all");
         const posts = await response.json();
 
         posts.forEach((post) => {
