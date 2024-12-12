@@ -267,7 +267,7 @@
             
     <% posts.forEach(post => { %>
                 
-          <a href=""  data-id="<%= post.id%>" class="twitter-post link-post">  
+         <a href=""  data-id="<%= post.id%>" class="twitter-post link-post">  
             <article class=" box" id="post-<%= post.id%>"> <!-- Ajout de la classe 'box' pour un fond blanc et une ombre -->
                 <div class="media position-media">
                     <div class="media-left user-info">
@@ -281,12 +281,11 @@
                     </div>
                     <div class="media-content">
                         <div class="content">
-                            <p class="tweet-text"><%= post.description %> #cafe_dev</p>
-                            <!-- Conteneur pour le média -->
-                            <div id="media-container-<%= post.id %>" class="media-container"></div>
+                           
+                            <p class="tweet-text"><%= post.description %> #Twitter</p>
+                            <img class="image-tweet is-240x245" src="/assets/coonect_booking.png" alt="Image du tweet" style="max-width: 100%; height: auto;"> <!-- Ajout de styles pour rendre l'image responsive -->
                         </div>
                     </div>
-                    
                 </div>
             
                 <div class="content icon-info"> <!-- Alignement à droite pour la date -->
@@ -300,8 +299,9 @@
                 </div>
                 
             </article>
-        </a>
+         </a>
     <% }) %>
+
 
 
  
