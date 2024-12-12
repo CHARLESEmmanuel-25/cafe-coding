@@ -424,8 +424,8 @@ p{
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     line-height: 1.6;
     margin-top: 4%;
-    overflow-y: auto;
-    
+    max-height: 600px; /* Définir une hauteur maximale */
+    overflow-y: auto; /* Activer le défilement vertical */
 }
 
 .box-apropos h2 {
