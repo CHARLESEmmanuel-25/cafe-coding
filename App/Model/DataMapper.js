@@ -13,7 +13,7 @@ const mainDatamapper = {
     getPost : async()=>{
 
        
-        const res = await client.query("SELECT * FROM post ORDER BY `created_at` DESC")
+        const res = await client.query("SELECT * FROM post ORDER BY created_at DESC")
         return res.rows;
 
     },
