@@ -201,7 +201,7 @@ projetsId.forEach(projetid=>{
     projetid.addEventListener('click', async (e)=>{
         e.preventDefault();
         const id = e.currentTarget.getAttribute('data-id');
-        const res = await fetch(`http://localhost:3000/projet/${id}`);
+        const res = await fetch(`https://emmanuel-charles.onrender.com/projet/${id}`);
         if (!res.ok) {
             throw new Error(`Response status: ${res.status}`);
         }
