@@ -10,7 +10,7 @@ const client = new Client({
   database: process.env.DBN,
   password: process.env.DBP ,
   port: process.env.DBPORT,
-  host: process.env.HOST
+  //host: process.env.HOST
  
 });
 
