@@ -145,11 +145,7 @@ if (closePostBtn) {
     })
 }
 
-posts.forEach((post) => {
-    post.addEventListener('click', () => {
-        openOverlay(overlayPost);
-    });
-});
+
 
 
 // charger les articles
