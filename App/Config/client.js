@@ -7,10 +7,10 @@ const { Client } = pg;
 
 const client = new Client({
   user: process.env.DBU,
+  host: process.env.HOST,
   database: process.env.DBN,
-  password: process.env.DBP ,
+  password: process.env.DBP,
   port: process.env.DBPORT,
-  //host: process.env.HOST
  
 });
 
