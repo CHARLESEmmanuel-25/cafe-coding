@@ -165,7 +165,7 @@ links.forEach(link => {
         const postId = e.currentTarget.getAttribute('data-id');
         
         try {
-            const res = await fetch(`https://cafe-coding.onrender.com/post/${postId}`);
+            const res = await fetch(`http://localhost:3000/post/${postId}`);
             if (!res.ok) {
                 throw new Error(`Response status: ${res.status}`);
             }
@@ -175,13 +175,13 @@ links.forEach(link => {
 
             if (post && post.length > 0) {
                 const postDescription = document.querySelector('.post-description');
+                
+                const postImageOverlay = document.querySelector('.imageOverlay');
                 const postDate = document.querySelector('.date');
-                 const postImageOverlay = document.querySelector('.imageOverlay');
-
-                 postImageOverlay.innerHTML +=` <img class="image-tweet is-240x245" src="/assets/${post[0].photo}" alt="Image du tweet" style="max-width: 100%; height: auto;">`
 
                 // Mise à jour de la description
                 postDescription.innerText = post[0].description;
+                postImageOverlay.innerHTML +=` <img class="image-tweet is-240x245" src="/assets/${post[0].photo}" alt="Image du tweet" style="max-width: 100%; height: auto;">`
 
                 // Formatage de la date
                 const formattedDate = new Date(post[0].created_at).toLocaleDateString('fr-FR', {
@@ -205,7 +205,7 @@ projetsId.forEach(projetid=>{
     projetid.addEventListener('click', async (e)=>{
         e.preventDefault();
         const id = e.currentTarget.getAttribute('data-id');
-        const res = await fetch(`https://cafe-coding.onrender.com/projet/${id}`);
+        const res = await fetch(`http://localhost:3000/projet/${id}`);
         if (!res.ok) {
             throw new Error(`Response status: ${res.status}`);
         }
@@ -371,5 +371,35 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 });
 
+
+
+
+// Theme color toggle
+
+const btnColor = document.querySelector('.theme-color');
+
+const headbarlight = document.querySelector('.bar-head'); // Correction ici : ajouter le point avant 'bar-head'
+
+
+
+if (localStorage.getItem('headbarLight') === 'true') {
+    // Si l'état est 'true', appliquer la classe 'lightbackground-color'
+    headbarlight.classList.add('lightbackground-color');
+} else {
+    // Si l'état est 'false' ou non défini, s'assurer que la classe est supprimée
+    headbarlight.classList.remove('lightbackground-color');
+}
+
+btnColor.addEventListener('click', () => {
+    // Basculer la classe 'lightbackground-color' sur headbarlight
+    headbarlight.classList.toggle('lightbackground-color');
+
+    // Enregistrer l'état actuel dans le localStorage (true ou false)
+    if (headbarlight.classList.contains('lightbackground-color')) {
+        localStorage.setItem('headbarLight', 'true'); // Sauvegarder l'état 'true'
+    } else {
+        localStorage.setItem('headbarLight', 'false'); // Sauvegarder l'état 'false'
+    }
+});
 
 
